@@ -1,5 +1,6 @@
 import './App.css'
-import Header from './components/Header'
+import Footer from './components/Footer/Footer'
+import Header from './components/header/Header'
 
 import {Routes, Route} from 'react-router'
 
@@ -16,6 +17,8 @@ function App() {
         <Route path="/upcoming" element={<h1>Works!</h1>} />
         <Route path="/highest-rated" element={<h1>Works!</h1>} />
       </Routes>
+
+      <Footer />
     </>
   )
 }
