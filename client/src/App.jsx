@@ -3,6 +3,7 @@ import Footer from './components/Footer/Footer'
 import Header from './components/header/Header'
 
 import {Routes, Route} from 'react-router'
+import Home from './components/Home'
 import HeroSection from './components/HeroSection'
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
 
       <HeroSection />
       <Routes>
+        <Route path="/" element={<Home />} />
         <Route path="/movies" element={<h1>Works!</h1>} />
         <Route path="/tv-series" element={<h1>Works!</h1>} />
         <Route path="/upcoming" element={<h1>Works!</h1>} />
