@@ -3,7 +3,6 @@ import './App.css'
 import Footer from './components/Footer/Footer'
 import Header from './components/header/Header'
 import Home from './components/Home'
-import HeroSection from './components/HeroSection'
 import Upcoming from './components/Upcoming'
 
 import {Routes, Route} from 'react-router'
