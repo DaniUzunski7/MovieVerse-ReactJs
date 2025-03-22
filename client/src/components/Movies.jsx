@@ -1,10 +1,11 @@
 import { Link } from "react-router";
+import Pagination from "./Pagination";
 
 export default function Movies() {
     const movies = [
         { id: 1, title: "Inception", releaseDate: "2010-07-16", posterUrl: "https://source.unsplash.com/400x600/?inception,movie" },
         { id: 2, title: "Interstellar", releaseDate: "2014-11-07", posterUrl: "https://source.unsplash.com/400x600/?interstellar,movie" },
-        { id: 3, title: "The Dark Knight", releaseDate: "2008-07-18", posterUrl: "https://source.unsplash.com/400x600/?dark-knight,movie" }
+        { id: 3, title: "The Dark Knight", releaseDate: "2008-07-18", posterUrl: "https://wallpaperswide.com/download/the_dark_knight_movie-wallpaper-1920x1200.jpg" }
         // Add more movies here
       ];
   
@@ -46,26 +47,8 @@ export default function Movies() {
         ))}
       </div>
 
-     {/* Pagination Controls */}
-     <div className="flex justify-center gap-4 mt-8">
-     <button
-       className="bg-yellow-400 text-gray-900 px-4 py-2 rounded-full text-lg hover:bg-yellow-300"
-    //    onClick={() => handlePageChange(currentPage - 1)}
-    //    disabled={currentPage === 1}
-       >
-       Previous
-     </button>
-     <span className="text-lg text-gray-300">
-       Page 1 of 3
-     </span>
-     <button
-       className="bg-yellow-400 text-gray-900 px-4 py-2 rounded-full text-lg hover:bg-yellow-300"
-    //    onClick={() => handlePageChange(currentPage + 1)}
-    //    disabled={currentPage === totalPages}
-       >
-       Next
-     </button>
-   </div>
+        <Pagination />
+
  </div>
   );
 }
