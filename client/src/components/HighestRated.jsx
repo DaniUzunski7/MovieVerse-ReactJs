@@ -12,14 +12,14 @@ export default function HighestRated() {
         { title: "Gladiator", rating: "8.5", poster: "https://source.unsplash.com/400x600/?gladiator,movie" }
         // You can add more if needed
       ];
-      
+
     return (
     <div className="bg-gray-900 text-yellow-400 min-h-screen py-8 px-6">
       <h1 className="text-3xl font-bold text-center mb-8">
         Top 10 Highest Rated Movies
       </h1>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
         {highestRatedMovies.map((movie, index) => (
           <div
             key={index}
