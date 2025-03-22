@@ -1,2 +1,0 @@
-# MovieVerse-ReactJs
-Exam project
