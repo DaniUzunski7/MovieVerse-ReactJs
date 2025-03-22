@@ -2,6 +2,7 @@ import './App.css'
 
 import Footer from './components/Footer/Footer'
 import Header from './components/header/Header'
+import HighestRated from './components/HighestRated'
 import Home from './components/Home'
 import Upcoming from './components/Upcoming'
 
@@ -19,7 +20,7 @@ function App() {
         <Route path="/movies" element={<h1>Works!</h1>} />
         <Route path="/tv-series" element={<h1>Works!</h1>} />
         <Route path="/upcoming" element={<Upcoming />} />
-        <Route path="/highest-rated" element={<h1>Works!</h1>} />
+        <Route path="/highest-rated" element={<HighestRated />} />
       </Routes>
 
       <Footer />

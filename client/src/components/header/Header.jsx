@@ -19,7 +19,7 @@ export default function Header() {
         <Link to="/upcoming" className="hover:text-yellow-300">
           Upcoming
         </Link>
-        <Link to="/highest" className="hover:text-yellow-300">
+        <Link to="/highest-rated" className="hover:text-yellow-300">
           Highest Rated
         </Link>
       </nav>
