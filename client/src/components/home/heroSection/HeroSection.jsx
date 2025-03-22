@@ -40,9 +40,8 @@ export default function HeroSection(){
          <div className="relative z-10 flex flex-col items-center text-center px-6">
            <h1 className="text-4xl font-bold text-yellow-400 mt-4 drop-shadow-2x1">{featuredMovies[currentIndex].title}</h1>
            <p className="text-gray-300 mt-2 max-w-xl">{featuredMovies[currentIndex].description}</p>
-           <Link to="/trending" className="mt-4 bg-yellow-400 text-gray-900 px-6 py-3 rounded-full text-lg font-bold hover:bg-yellow-300">Explore Top Rated Movies</Link>
+           <Link to="/highest-rated" className="mt-4 bg-yellow-400 text-gray-900 px-6 py-3 rounded-full text-lg font-bold hover:bg-yellow-300">Explore Top Rated Movies</Link>
          </div>
        </section>
-
     )
 }

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import HeroSection from "./HeroSection";
+import HeroSection from "./heroSection/HeroSection";
 
 
 export default function Home(){
@@ -24,7 +24,7 @@ export default function Home(){
           </div>
           
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {[...Array(8)].map((_, index) => (
+            {[...Array(4)].map((_, index) => (
               <div key={index} className="bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:scale-105 transition-transform">
                 <div className="h-60 bg-cover bg-center" style={{ backgroundImage: "url('https://source.unsplash.com/300x400/?movie')" }}></div>
                 <div className="p-4 text-center">

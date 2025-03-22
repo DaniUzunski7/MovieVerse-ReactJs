@@ -2,11 +2,11 @@ import './App.css'
 
 import Footer from './components/Footer/Footer'
 import Header from './components/header/Header'
-import HighestRated from './components/HighestRated'
-import Home from './components/Home'
-import Movies from './components/Movies'
-import TvSeries from './components/TvSeries'
-import Upcoming from './components/Upcoming'
+import HighestRated from './components/catalogs/HighestRated'
+import Home from './components/home/Home'
+import Movies from './components/catalogs/Movies'
+import TvSeries from './components/catalogs/TvSeries'
+import Upcoming from './components/catalogs/Upcoming'
 
 import {Routes, Route} from 'react-router'
 
