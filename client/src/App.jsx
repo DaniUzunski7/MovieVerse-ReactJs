@@ -9,6 +9,7 @@ import TvSeries from './components/catalogs/TvSeries'
 import Upcoming from './components/catalogs/Upcoming'
 
 import {Routes, Route} from 'react-router'
+import Login from './components/user/login/Login'
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
         <Route path="/tv-series" element={<TvSeries />} />
         <Route path="/upcoming" element={<Upcoming />} />
         <Route path="/highest-rated" element={<HighestRated />} />
+        <Route path="/login" element={ <Login />} />
       </Routes>
 
       <Footer />
