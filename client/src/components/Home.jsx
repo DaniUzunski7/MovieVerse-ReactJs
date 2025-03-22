@@ -1,4 +1,5 @@
 import { useState } from "react";
+import HeroSection from "./HeroSection";
 
 
 export default function Home(){
@@ -11,7 +12,9 @@ export default function Home(){
       ];
 
     return (
+        
         <main className="flex-grow p-6">
+            <HeroSection />
           <div className="flex justify-center mb-6">
               <span className={`w-24 text-center text-sm font-bold ${movieCategory === "lastAdded" ? "text-yellow-400" : "text-gray-400"}`}>Recently Added</span>
             <div className="relative w-48 h-10 bg-gray-700 rounded-full flex items-center cursor-pointer p-1" onClick={() => setMovieCategory(movieCategory === "lastAdded" ? "upcoming" : "lastAdded")}>              
