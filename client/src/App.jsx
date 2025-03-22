@@ -5,6 +5,7 @@ import Header from './components/header/Header'
 import HighestRated from './components/HighestRated'
 import Home from './components/Home'
 import Movies from './components/Movies'
+import TvSeries from './components/TvSeries'
 import Upcoming from './components/Upcoming'
 
 import {Routes, Route} from 'react-router'
@@ -19,7 +20,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/movies" element={<Movies />} />
-        <Route path="/tv-series" element={<h1>Works!</h1>} />
+        <Route path="/tv-series" element={<TvSeries />} />
         <Route path="/upcoming" element={<Upcoming />} />
         <Route path="/highest-rated" element={<HighestRated />} />
       </Routes>
