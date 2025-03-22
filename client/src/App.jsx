@@ -10,6 +10,7 @@ import Upcoming from './components/catalogs/Upcoming'
 
 import {Routes, Route} from 'react-router'
 import Login from './components/user/login/Login'
+import Register from './components/user/register/Register'
 
 function App() {
 
@@ -25,6 +26,7 @@ function App() {
         <Route path="/upcoming" element={<Upcoming />} />
         <Route path="/highest-rated" element={<HighestRated />} />
         <Route path="/login" element={ <Login />} />
+        <Route path="/register" element={ <Register />} />
       </Routes>
 
       <Footer />
