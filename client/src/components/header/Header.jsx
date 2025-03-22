@@ -5,10 +5,13 @@ import { Link } from "react-router";
 export default function Header() {
   return (
     <header className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-700 text-white py-4 px-6 flex justify-between items-center shadow-lg">
+      <Link to={"/"}>
       <div className="flex items-center gap-2">
         <FaFilm className="text-3xl text-yellow-400" />
-        <span className="text-2xl font-bold text-yellow-400">MovieVerse</span>
+        <span className="text-2xl font-bold text-yellow-400">
+          MovieVerse</span>
       </div>
+      </Link>
       <nav className="hidden md:flex gap-6 text-lg">
         <Link to="/movies" className="hover:text-yellow-300">
           Movies
