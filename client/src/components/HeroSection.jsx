@@ -14,27 +14,27 @@ export default function HeroSection(){
       const featuredMovies = [
         { 
             title: "Inception", 
-            image: "https://images.bauerhosting.com/legacy/empire-tmdb/films/27205/images/s2bT29y0ngXxxu2IA8AOzzXTRhd.jpg?ar=16%3A9&fit=crop&crop=top&auto=format&w=1440&q=80", 
+            image: "https://images.squarespace-cdn.com/content/v1/5ec686197f8b2976074846c2/1618809593080-N5PB8CWYOW3OPDE2TT6E/Feature+3-1.png", 
             description: "A mind-bending thriller by Christopher Nolan." },
 
         { 
             title: "Interstellar", 
-            image: "https://images.alphacoders.com/129/1299427.jpg", 
+            image: "https://www.pixel4k.com/wp-content/uploads/2021/04/interstellar-astronaut-4k_1618130890.jpg", 
             description: "A journey beyond our galaxy to save humanity." },
 
         { 
             title: "The Dark Knight", 
-            image: "https://theconsultingdetectivesblog.com/wp-content/uploads/2014/06/the-dark-knight-original.jpg", 
+            image: "https://wallpaperswide.com/download/the_dark_knight_movie-wallpaper-1920x1200.jpg", 
             description: "The legendary battle between Batman and Joker." }
       ];
     
     return (
         
-         <section className="relative h-[60vh] w-full overflow-hidden flex items-center justify-center">
+         <section className="relative h-[65vh] w-full overflow-hidden flex items-center justify-center">
          <div className="absolute inset-0 bg-black bg-opacity-50"></div>
          <div
-           className="absolute inset-0 h-full w-full bg-cover bg-center transition-all duration-1000"
-           style={{ backgroundImage: `url(${featuredMovies[currentIndex].image})` }}
+           className="absolute inset-0 h-full w-full bg-cover bg-center transition-all duration-700"
+           style={{ backgroundImage: `url(${featuredMovies[currentIndex].image})`, backgroundSize: '100%', backgroundPosition: 'center' }}
          ></div>
          <div className="relative z-10 flex flex-col items-center text-center px-6">
            {/* <img src={featuredMovies[currentIndex].poster} alt={featuredMovies[currentIndex].title} className="w-52 md:w-64 lg:w-80 shadow-lg rounded-lg" /> */}
