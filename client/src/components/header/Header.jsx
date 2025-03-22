@@ -20,7 +20,7 @@ export default function Header() {
           Upcoming
         </Link>
         <Link to="/highest" className="hover:text-yellow-300">
-          Trending
+          Highest Rated
         </Link>
       </nav>
       <div className="flex items-center gap-4">
