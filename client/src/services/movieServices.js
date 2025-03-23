@@ -1,19 +1,19 @@
+import request from "../utils/request"
+
+
 const baseUrl =  'http://localhost:3030/jsonstore/movies'
 
 async function addMovie(movieData){
-    const response = await fetch(baseUrl, {
-        method: 'POST',
-        headers: {
-            'Content-type': 'application/json'
-        },
-        body: JSON.stringify(movieData)
-    })
+    return request.post(baseUrl, movieData)
+}
 
-    const result = await response.json()
+async function getAll(){
+    const response = await request.get(baseUrl);
 
-    return result
+    return Object.values(response)
 }
 
 export default {
-    addMovie
+    addMovie,
+    getAll
 }

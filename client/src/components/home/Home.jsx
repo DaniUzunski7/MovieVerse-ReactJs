@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import HeroSection from "./heroSection/HeroSection";
 
+import HeroSection from "./heroSection/HeroSection";
 
 export default function Home(){
     const [movieCategory, setMovieCategory] = useState("lastAdded");
