@@ -1,8 +1,13 @@
 import "./addMovie.css"
 
+import movieServices from "../../services/movieServices.js";
+
+import { useNavigate } from "react-router";
+
 import { useState } from "react";
 
 export default function AddContent(){
+    const navigate = useNavigate()
 
     const [entries, setEntries] = useState([]);
     const [formData, setFormData] = useState({ title: "", poster: "", genre: "", director: "", year: "", time: "", description: "" });
@@ -11,20 +16,20 @@ export default function AddContent(){
         setFormData({ ...formData, [e.target.name]: e.target.value });
       };
 
-      const handleSubmit = (e) => {
-        e.preventDefault();
-        if (!formData.title.trim() || !formData.image.trim()) return;
-        setEntries([...entries, formData]);
-        setFormData({ title: "", poster: "", genre: "", director: "", year: "", time: "", description: "" });
+      const submitAction = async (formData) => {
+        const movieData = Object.fromEntries(formData);
+        
+        await movieServices.addMovie(movieData);
+
+        navigate('/movies');
       };
-      console.log(formData);
       
     return (
         <div className="collection-container">
         <h1 className="collection-title">Add your favourite movie</h1>
         <p className="collection-subtitle">Sure it will be a good one.</p>
   
-        <form className="collection-form" onSubmit={handleSubmit}>
+        <form className="collection-form" action={submitAction}>
   <div className="form-group">
     <label htmlFor="title">Movie Title</label>
     <input
