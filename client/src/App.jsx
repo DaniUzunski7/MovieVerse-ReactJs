@@ -6,10 +6,11 @@ import HighestRated from './components/catalogs/HighestRated'
 import Home from './components/home/Home'
 import Movies from './components/catalogs/Movies'
 import Upcoming from './components/catalogs/Upcoming'
-
-import {Routes, Route} from 'react-router'
 import Login from './components/user/login/Login'
 import Register from './components/user/register/Register'
+import AddMovie from './components/addMovie/AddMovie'
+
+import {Routes, Route} from 'react-router'
 
 function App() {
 
@@ -25,6 +26,7 @@ function App() {
         <Route path="/highest-rated" element={<HighestRated />} />
         <Route path="/login" element={ <Login />} />
         <Route path="/register" element={ <Register />} />
+        <Route path="/movies/add" element={ <AddMovie />} />
       </Routes>
 
       <Footer />

@@ -16,9 +16,6 @@ export default function Header() {
         <Link to="/movies" className="hover:text-yellow-300">
           Movies
         </Link>
-        <Link to="/tv-series" className="hover:text-yellow-300">
-          TV Series
-        </Link>
         <Link to="/upcoming" className="hover:text-yellow-300">
           Upcoming
         </Link>

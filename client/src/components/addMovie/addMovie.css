@@ -1,0 +1,86 @@
+body {
+    background-color: #1a202c;
+    color: #fbbf24;
+    font-family: Arial, sans-serif;
+    margin: 0;
+  }
+  
+  .collection-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+  }
+  
+  .collection-title {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #fbbf24;
+  }
+  
+  .collection-subtitle {
+    font-size: 1.2rem;
+    color: #e2e8f0;
+    margin-bottom: 20px;
+  }
+  
+  .collection-form {
+    width: 40%;
+    margin: 0 auto;
+    padding: 20px;
+    background: linear-gradient(#222, #2A2A2A);
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
+    color: white;
+}
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+  }
+  
+  .form-group label {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #444;
+    background: #2a2a2a;
+    color: white;
+    border-radius: 5px;
+    transition: border 0.3s;
+  }
+  
+  .form-group input:focus,
+  .form-group textarea:focus {
+    border-color: #facc15;
+    outline: none;
+  }
+  
+  textarea {
+    resize: vertical;
+    min-height: 80px;
+  }
+  
+  .submit-btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #1e1e1e;
+    background: #facc15;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .submit-btn:hover {
+    background: #fbbf24;
+  }
