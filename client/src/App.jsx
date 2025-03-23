@@ -11,7 +11,6 @@ import Register from './components/user/register/Register'
 import AddMovie from './components/addMovie/AddMovie'
 
 import {Routes, Route} from 'react-router'
-import MovieDetails from './components/MovieDetails'
 
 function App() {
 
@@ -28,7 +27,6 @@ function App() {
         <Route path="/login" element={ <Login />} />
         <Route path="/register" element={ <Register />} />
         <Route path="/movies/add" element={ <AddMovie />} />
-        <Route path="/movies/:id/details" element={<MovieDetails />} />
       </Routes>
 
       <Footer />

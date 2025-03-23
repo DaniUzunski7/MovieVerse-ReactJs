@@ -13,14 +13,7 @@ async function getAll(){
     return Object.values(response)
 }
 
-async function getOne(id) {
-    const response = await request.get(`${baseUrl}/${id}`)
-    
-    return response;
-}
-
 export default {
     addMovie,
-    getAll,
-    getOne
+    getAll
 }
