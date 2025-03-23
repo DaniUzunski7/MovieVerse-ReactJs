@@ -1,5 +1,4 @@
 import { Link } from "react-router";
-
 export default function MovieCard({
     _id,
     title,
@@ -7,6 +6,7 @@ export default function MovieCard({
     year,
 }){
     return (
+
         <div key={_id} className="bg-gray-800 rounded-lg overflow-hidden shadow-xl transform transition-all duration-300 hover:scale-105 hover:shadow-2xl relative">
             <div className="relative group">
               <img src={poster} alt={title} className="w-full items-center h-90 object-cover rounded-t-lg" />

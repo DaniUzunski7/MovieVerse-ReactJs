@@ -29,15 +29,18 @@ export default function Movies() {
         </Link>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
          {movies.length > 0
-          ? movies.map(movie => <MovieCard key={movie._id} {...movie} error={error}/>)
+         ? <div className="grid grid-cols-3 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {movies.map(movie =>  <MovieCard key={movie._id} {...movie} error={error}/>) }
+            </div>
           : <NoContent />
         }
         
-      </div>
 
-        <Pagination />
+        {movies.length > 0
+          ? <Pagination />
+          : null
+        }
 
  </div>
   );
