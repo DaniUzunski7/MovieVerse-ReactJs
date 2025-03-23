@@ -4,13 +4,16 @@ import { useState, useEffect } from "react";
 import Pagination from "../Pagination";
 import movieServices from "../../services/movieServices";
 import MovieCard from "../MovieCard";
+import NoContent from "../NoContent";
 
 export default function Movies() {
     const [movies, setMovies] = useState([]);
+    const [error, setError] = useState();
 
     useEffect( () => {
       movieServices.getAll()
-        .then(result => setMovies(result))
+        .then(setMovies)
+        .catch(setError);
     }, [])
   
     return (
@@ -27,7 +30,11 @@ export default function Movies() {
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {movies.map(movie => <MovieCard key={movie._id} {...movie} />)}
+         {movies.length > 0
+          ? movies.map(movie => <MovieCard key={movie._id} {...movie} error={error}/>)
+          : <NoContent />
+        }
+        
       </div>
 
         <Pagination />
