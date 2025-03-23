@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import HeroSection from "./heroSection/HeroSection";
 
 
 export default function Home(){
     const [movieCategory, setMovieCategory] = useState("lastAdded");
+    const [movies, setMovies] = useState([]);
     
     const featuredMovies = [
         { title: "Inception", image: "https://source.unsplash.com/1600x900/?movie,scifi", poster: "https://source.unsplash.com/400x600/?inception,movie", description: "A mind-bending thriller by Christopher Nolan." },
@@ -24,7 +25,7 @@ export default function Home(){
           </div>
           
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {[...Array(4)].map((_, index) => (
+            {featuredMovies.map((_, index) => (
               <div key={index} className="bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:scale-105 transition-transform">
                 <div className="h-60 bg-cover bg-center" style={{ backgroundImage: "url('https://source.unsplash.com/300x400/?movie')" }}></div>
                 <div className="p-4 text-center">
