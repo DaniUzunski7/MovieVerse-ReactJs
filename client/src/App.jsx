@@ -12,12 +12,13 @@ import AddMovie from './components/addMovie/AddMovie'
 
 import {Routes, Route} from 'react-router'
 import MovieDetails from './components/movieDetails/MovieDetails'
+import About from './components/about/About'
 
 function App() {
 
   return (
     <>
-    <div className="flex flex-col min-h-screen bg-gray-900 text-yellow-400">
+    <div className="flex flex-col min-h-screen w-full bg-gray-900 text-yellow-400">
       <Header />
 
       <Routes>
@@ -29,6 +30,7 @@ function App() {
         <Route path="/register" element={ <Register />} />
         <Route path="/movies/add" element={ <AddMovie />} />
         <Route path="/:path/:id/details" element={ <MovieDetails />} />
+        <Route path="/about" element={ <About />} />
       </Routes>
 
       <Footer />

@@ -1,0 +1,137 @@
+/* html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    font-family: Arial, sans-serif;
+  } */
+  
+  .container {
+    background-color: #1a202c;
+    color: #fcd34d;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 4%;
+  }
+  
+  .hero-section {
+    position: relative;
+    height: 60vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .hero-content h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+  }
+  
+  .hero-content p {
+    color: #d1d5db;
+    margin-top: 1rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .explore-btn {
+    width: 300px;
+    margin-top: 3rem;
+    padding: 1rem 2rem;
+    background-color: #fcd34d;
+    color: #1a202c;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+  }
+  
+  .explore-btn:hover {
+    background-color: #fbbf24;
+  }
+  
+  .about-section {
+    padding: 3rem 1rem;
+    text-align: center;
+    flex-grow: 1;
+  }
+  
+  .about-section h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #fcd34d;
+  }
+  
+  .about-section p {
+    color: #d1d5db;
+    margin-top: 1rem;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .team-section {
+    background-color: #2d3748;
+    padding: 3rem 1rem;
+    text-align: center;
+  }
+  
+  .team-section h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #fcd34d;
+  }
+  
+  .team-members {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+  }
+  
+  .team-member {
+    text-align: center;
+  }
+  
+  .team-member img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+  }
+  
+  .team-member p {
+    color: #fcd34d;
+    font-size: 1.2rem;
+    margin-top: 1rem;
+  }
+  
+  .team-member span {
+    color: #d1d5db;
+  }

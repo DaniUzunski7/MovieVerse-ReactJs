@@ -22,6 +22,9 @@ export default function Header() {
         <Link to="/highest-rated" className="hover:text-yellow-300">
           Highest Rated
         </Link>
+        <Link to="/about" className="hover:text-yellow-300">
+          About
+        </Link>
       </nav>
       <div className="flex items-center gap-4">
         <div className="relative">
