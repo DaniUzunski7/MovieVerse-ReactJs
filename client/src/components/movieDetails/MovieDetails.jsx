@@ -2,8 +2,9 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import { FaEdit, FaTrash, FaThumbsUp, FaThumbsDown } from "react-icons/fa";
 
-import movieServices from "../services/movieServices";
-import Rating from "./rating/Rating";
+import movieServices from "../../services/movieServices";
+import Rating from "../rating/Rating";
+import ShowRating from "../rating/ShowRating";
 
 export default function MovieDetails() {
   const { path, id } = useParams();
@@ -40,16 +41,17 @@ export default function MovieDetails() {
           {/* Rating Section */}
           <div className="mt-6">
             <h3 className="text-2xl font-semibold text-gray-200">
-              Do you agree with the rating?
+              {path === 'movies'
+                ? 'Do you agree with the rating?'
+                : 'Are you excited to see it?'
+              }
             </h3>
-            <div className="flex mt-2">
-              <Rating rating={movie.rating} />
+           {path === 'movies'
+              ? <ShowRating rating={movie.rating}/>
+              : null
+           }
+           
             </div>
-            <p className="mt-2 text-gray-400">
-              Rating: {movie.rating} / 10
-            </p>
-          </div>
-
           <button
             className={`relative top-7 mb-7 bg-yellow-400 text-gray-900 px-4 py-2 rounded-full transition-all duration-300 hover:bg-yellow-500 ${
               "liked" ? "bg-yellow-500" : "bg-yellow-400"
