@@ -33,7 +33,13 @@ export default function MovieDetails() {
             {movie.title}
           </h1>
           <p className="text-lg text-gray-300 mt-2">{movie.description}</p>
-          <p className="text-gray-400 mt-4">Released on: {movie.year}</p>
+          <p className="text-gray-400 mt-4">
+            {path !== 'upcomming'
+              ? 'Expected release date: '
+              : 'Released on: '
+            } 
+            {movie.year}
+            </p>
           <p className="text-gray-400 mt-2">Director: {movie.director}</p>
           <p className="text-gray-400 mt-2">Genre: {movie.genre}</p>
           <p className="text-gray-400 mt-2">Duration: {movie.time} min</p>

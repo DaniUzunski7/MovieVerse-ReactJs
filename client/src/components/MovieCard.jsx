@@ -25,7 +25,14 @@ export default function MovieCard({
             </div>
             <div className="p-4">
               <h2 className="text-xl font-semibold text-gray-200">{title}</h2>
-              <p className="text-gray-400 mt-2">Release Date: {year}</p>
+              {path !== 'upcoming'
+                ? <p className="text-gray-400 mt-2">Release Date: {year}</p>
+                : 
+                <>
+                
+                </>
+              }
+              
             </div>
           </div>
     )
