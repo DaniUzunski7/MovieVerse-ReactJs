@@ -10,7 +10,6 @@ async function addMovie(movieData, dataPath){
 async function getAll(dataPath){
     
     const response = await request.get(`${baseUrl}/${dataPath}`);
-    console.log(response);
     
     return Object.values(response)
 }

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import movieServices from "../../services/movieServices";
 import MovieCard from "../MovieCard";
 import NoContent from "../NoContent";
+import { useParams } from "react-router";
 
 export default function Upcoming() {
   const [movies, setMovies] = useState([]);
@@ -10,7 +11,6 @@ export default function Upcoming() {
   useEffect(() => {
     movieServices.getAll("upcoming").then(setMovies).catch(setError);
   }, []);
-  console.log(movies, error);
 
   const currentYear = new Date().getFullYear();
 

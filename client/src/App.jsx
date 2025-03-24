@@ -11,7 +11,7 @@ import Register from './components/user/register/Register'
 import AddMovie from './components/addMovie/AddMovie'
 
 import {Routes, Route} from 'react-router'
-import MovieDetails from './components/MovieDetails'
+import MovieDetails from './components/movieDetails/MovieDetails'
 
 function App() {
 
