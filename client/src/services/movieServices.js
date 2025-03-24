@@ -23,5 +23,5 @@ async function getOne(id, dataPath) {
 export default {
     addMovie,
     getAll,
-    getOne
+    getOne,
 }
