@@ -9,8 +9,7 @@ import { useState } from "react";
 export default function AddContent(){
     const navigate = useNavigate()
 
-    const [entries, setEntries] = useState([]);
-    const [formData, setFormData] = useState({ title: "", poster: "", genre: "", director: "", year: "", time: "", description: "" });
+    const [formData, setFormData] = useState({ title: "", poster: "", genre: "", director: "", year: 0, time: 0, description: "", rating: 0 });
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -19,7 +18,7 @@ export default function AddContent(){
       const submitAction = async (formData) => {
         const movieData = Object.fromEntries(formData);
         
-        await movieServices.addMovie(movieData);
+        await movieServices.addMovie(movieData, 'movies');
 
         navigate('/movies');
       };
@@ -115,6 +114,19 @@ export default function AddContent(){
       name="description"
       placeholder="Enter movie description"
       value={formData.description}
+      onChange={handleChange}
+      required
+    />
+  </div>
+
+  <div className="form-group">
+    <label htmlFor="genre">Rating</label>
+    <input
+      type="number"
+      id="rating"
+      name="rating"
+      placeholder="Enter rating"
+      value={formData.rating}
       onChange={handleChange}
       required
     />
