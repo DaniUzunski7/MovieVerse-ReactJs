@@ -1,0 +1,112 @@
+{
+    "1a2b3c4d": {
+      "_id": "1a2b3c4d",
+      "title": "Ballerina",
+      "poster": "https://www.imdb.com/title/tt6443346/mediaviewer/rm1234567890/",
+      "year": 2025,
+      "director": "Len Wiseman",
+      "description": "A spinoff from the 'John Wick' franchise following a young assassin seeking revenge.",
+      "genre": "Action, Thriller",
+      "rating": 7.8,
+      "time": 130
+    },
+    "2e3f4g5h": {
+      "_id": "2e3f4g5h",
+      "title": "Deadpool 3",
+      "poster": "https://www.imdb.com/title/tt6263850/mediaviewer/rm2345678901/",
+      "year": 2025,
+      "director": "Shawn Levy",
+      "description": "Wade Wilson returns with more chaos, humor, and the multiverse madness featuring Wolverine.",
+      "genre": "Action, Comedy, Sci-Fi",
+      "rating": 8.5,
+      "time": 125
+    },
+    "3i4j5k6l": {
+      "_id": "3i4j5k6l",
+      "title": "Avatar 3",
+      "poster": "https://www.imdb.com/title/tt1630029/mediaviewer/rm3456789012/",
+      "year": 2025,
+      "director": "James Cameron",
+      "description": "The next chapter in Pandora's saga as Jake Sully and Neytiri fight to protect their world.",
+      "genre": "Action, Adventure, Sci-Fi",
+      "rating": 8.2,
+      "time": 170
+    },
+    "4m5n6o7p": {
+      "_id": "4m5n6o7p",
+      "title": "Fantastic Four",
+      "poster": "https://www.imdb.com/title/tt10676048/mediaviewer/rm4567890123/",
+      "year": 2025,
+      "director": "Matt Shakman",
+      "description": "Marvel’s First Family arrives in the MCU, bringing cosmic adventure and superhero action.",
+      "genre": "Action, Adventure, Superhero",
+      "rating": 7.9,
+      "time": 140
+    },
+    "5q6r7s8t": {
+      "_id": "5q6r7s8t",
+      "title": "Superman: Legacy",
+      "poster": "https://www.imdb.com/title/tt16777292/mediaviewer/rm5678901234/",
+      "year": 2025,
+      "director": "James Gunn",
+      "description": "A new era for Superman begins as he balances his Kryptonian heritage and human values.",
+      "genre": "Action, Adventure, Sci-Fi",
+      "rating": 8.0,
+      "time": 150
+    },
+    "6u7v8w9x": {
+    "_id": "6u7v8w9x",
+    "title": "The Batman Part II",
+    "poster": "https://www.imdb.com/title/tt1877830/mediaviewer/rm1234567891/",
+    "year": 2025,
+    "director": "Matt Reeves",
+    "description": "Bruce Wayne continues his fight against Gotham's criminals as new threats emerge.",
+    "genre": "Action, Crime, Drama",
+    "rating": 8.6,
+    "time": 155
+  },
+  "7y8z9a0b": {
+    "_id": "7y8z9a0b",
+    "title": "Jurassic World 4",
+    "poster": "https://www.imdb.com/title/tt2953050/mediaviewer/rm2345678902/",
+    "year": 2025,
+    "director": "David Leitch",
+    "description": "Dinosaurs continue to roam the Earth, leading to new discoveries and conflicts.",
+    "genre": "Action, Adventure, Sci-Fi",
+    "rating": 7.7,
+    "time": 145
+  },
+  "8c9d0e1f": {
+    "_id": "8c9d0e1f",
+    "title": "Spider-Man: Beyond the Spider-Verse",
+    "poster": "https://www.imdb.com/title/tt10366234/mediaviewer/rm3456789013/",
+    "year": 2025,
+    "director": "Joaquim Dos Santos",
+    "description": "Miles Morales embarks on a new multiversal journey, facing greater challenges than ever.",
+    "genre": "Animation, Action, Adventure",
+    "rating": 8.9,
+    "time": 135
+  },
+  "9g0h1i2j": {
+    "_id": "9g0h1i2j",
+    "title": "Shrek 5",
+    "poster": "https://www.imdb.com/title/tt7891352/mediaviewer/rm4567890124/",
+    "year": 2025,
+    "director": "Chris Meledandri",
+    "description": "Shrek and the gang return for another hilarious adventure in the land of Far Far Away.",
+    "genre": "Animation, Comedy, Family",
+    "rating": 7.5,
+    "time": 110
+  },
+  "0k1l2m3n": {
+    "_id": "0k1l2m3n",
+    "title": "Star Wars: New Jedi Order",
+    "poster": "https://www.imdb.com/title/tt9208876/mediaviewer/rm5678901235/",
+    "year": 2025,
+    "director": "Sharmeen Obaid-Chinoy",
+    "description": "Rey rebuilds the Jedi Order, facing new galactic threats in a post-Skywalker era.",
+    "genre": "Action, Adventure, Sci-Fi",
+    "rating": 8.1,
+    "time": 160
+  }
+  }
