@@ -1,16 +1,17 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import { FaEdit, FaTrash, FaThumbsUp, FaThumbsDown } from "react-icons/fa";
+
 import movieServices from "../services/movieServices";
 import Rating from "./rating/Rating";
 
 export default function MovieDetails() {
-  const { id } = useParams();
+  const { path, id } = useParams();
 
   const [movie, setMovie] = useState({});
 
   useEffect(() => {
-    movieServices.getOne(id).then(setMovie);
+    movieServices.getOne(id, path).then(setMovie);
   }, [id]);
 
   return (
@@ -39,13 +40,13 @@ export default function MovieDetails() {
           {/* Rating Section */}
           <div className="mt-6">
             <h3 className="text-2xl font-semibold text-gray-200">
-              Rate this Movie
+              Do you agree with the rating?
             </h3>
             <div className="flex mt-2">
               <Rating rating={movie.rating} />
             </div>
             <p className="mt-2 text-gray-400">
-              Your Rating: {movie.rating} / 10
+              Rating: {movie.rating} / 10
             </p>
           </div>
 
@@ -69,16 +70,20 @@ export default function MovieDetails() {
           </button>
 
           {/* Edit/Delete buttons */}
-          <div className="flex flex-col lg:flex-row gap-3 mt-8 lg:absolute lg:bottom-15 lg:right-8 lg:space-x-4 w-full lg:w-auto">
-            <button className="bg-yellow-400 text-gray-900 px-4 py-2 rounded-full flex items-center gap-2 hover:bg-yellow-500 transition-all duration-300 w-full lg:w-auto">
-              <FaEdit />
-              Edit
-            </button>
-            <button className="bg-red-600 text-white px-4 py-2 rounded-full flex items-center gap-2 hover:bg-red-700 transition-all duration-300 w-full lg:w-auto">
-              <FaTrash />
-              Delete
-            </button>
-          </div>
+          {path === "upcoming" ? (
+            ""
+          ) : (
+            <div className="flex flex-col lg:flex-row gap-3 mt-8 lg:absolute lg:bottom-15 lg:right-8 lg:space-x-4 w-full lg:w-auto">
+              <button className="bg-yellow-400 text-gray-900 px-4 py-2 rounded-full flex items-center gap-2 hover:bg-yellow-500 transition-all duration-300 w-full lg:w-auto">
+                <FaEdit />
+                Edit
+              </button>
+              <button className="bg-red-600 text-white px-4 py-2 rounded-full flex items-center gap-2 hover:bg-red-700 transition-all duration-300 w-full lg:w-auto">
+                <FaTrash />
+                Delete
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </div>

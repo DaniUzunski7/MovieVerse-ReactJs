@@ -1,20 +1,22 @@
 import request from "../utils/request"
 
 
-const baseUrl =  'http://localhost:3030/jsonstore/movies'
+const baseUrl =  'http://localhost:3030/jsonstore'
 
-async function addMovie(movieData){
-    return request.post(baseUrl, movieData)
+async function addMovie(movieData, dataPath){
+    return request.post(`${baseUrl}/${dataPath}`, movieData)
 }
 
-async function getAll(){
-    const response = await request.get(baseUrl);
-
+async function getAll(dataPath){
+    
+    const response = await request.get(`${baseUrl}/${dataPath}`);
+    console.log(response);
+    
     return Object.values(response)
 }
 
-async function getOne(id) {
-    const response = await request.get(`${baseUrl}/${id}`)
+async function getOne(id, dataPath) {
+    const response = await request.get(`${baseUrl}/${dataPath}/${id}`)
     
     return response;
 }

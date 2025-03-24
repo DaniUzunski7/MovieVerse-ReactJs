@@ -28,7 +28,7 @@ function App() {
         <Route path="/login" element={ <Login />} />
         <Route path="/register" element={ <Register />} />
         <Route path="/movies/add" element={ <AddMovie />} />
-        <Route path="/movies/:id/details" element={ <MovieDetails />} />
+        <Route path="/:path/:id/details" element={ <MovieDetails />} />
       </Routes>
 
       <Footer />

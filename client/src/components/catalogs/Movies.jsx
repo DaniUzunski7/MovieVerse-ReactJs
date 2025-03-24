@@ -11,7 +11,7 @@ export default function Movies() {
     const [error, setError] = useState();
 
     useEffect( () => {
-      movieServices.getAll()
+      movieServices.getAll('movies')
         .then(setMovies)
         .catch(setError);
     }, [])
@@ -31,7 +31,7 @@ export default function Movies() {
 
          {movies.length > 0
          ? <div className="grid grid-cols-3 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {movies.map(movie =>  <MovieCard key={movie._id} {...movie} error={error}/>) }
+              {movies.map(movie =>  <MovieCard key={movie._id} {...movie} error={error} path="movies"/>) }
             </div>
           : <NoContent />
         }

@@ -23,7 +23,6 @@ export default function Rating({
         for(let i = 1; i <= emptyStars; i++){
             stars.push(<FaRegStar key={`empty-${i}`} className="text-gray-500" size={36}/>);
         }
-        console.log(stars);
         
         return stars;
     }
