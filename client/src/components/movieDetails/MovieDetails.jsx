@@ -51,8 +51,8 @@ export default function MovieDetails() {
           <p className="text-lg text-gray-300 mt-2">{movie.description}</p>
           <p className="text-gray-400 mt-4">
             {path !== 'upcomming'
-              ? 'Expected release date: '
-              : 'Released on: '
+              ? 'Released: '
+              : 'Expected release date: '
             } 
             {movie.year}
             </p>

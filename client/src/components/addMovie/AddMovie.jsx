@@ -27,9 +27,13 @@ export default function AddContent(){
       const submitAction = async (formData) => {
         const movieData = Object.fromEntries(formData);
         
-        await movieServices.addMovie(movieData, 'movies');
+        if(id){
+          await movieServices.editMovie('movies', id, movieData)
+        } else {
+          await movieServices.addMovie(movieData, 'movies');
+        }
 
-        navigate('/movies');
+        navigate(`/movies/${id}/details`);
       };
       
     return (
@@ -131,7 +135,7 @@ export default function AddContent(){
   <div className="form-group">
     <label htmlFor="genre">Rating</label>
     <input
-      type="number"
+      type="text"
       id="rating"
       name="rating"
       placeholder="Enter rating"
@@ -141,7 +145,7 @@ export default function AddContent(){
     />
   </div>
 
-  <button type="submit" className="submit-btn">Add Movie</button>
+  <button type="submit" className="submit-btn">{id ? 'Edit' : 'Add'} Movie</button>
 </form>
       </div>
     )

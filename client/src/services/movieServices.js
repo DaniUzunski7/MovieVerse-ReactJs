@@ -3,7 +3,7 @@ import request from "../utils/request"
 
 const baseUrl =  'http://localhost:3030/jsonstore'
 
-async function addMovie(movieData, dataPath){
+function addMovie(movieData, dataPath){
     return request.post(`${baseUrl}/${dataPath}`, movieData)
 }
 
@@ -14,19 +14,22 @@ async function getAll(dataPath){
     return Object.values(response)
 }
 
-async function getOne(id, dataPath) {
-    const response = await request.get(`${baseUrl}/${dataPath}/${id}`)
-    
-    return response;
+ function getOne(id, dataPath) {    
+    return request.get(`${baseUrl}/${dataPath}/${id}`);
 }
 
-async function deleteMovie(dataPath, id) {
-    return await request.delete(`${baseUrl}/${dataPath}/${id}`);
+function deleteMovie(dataPath, id) {
+    return request.delete(`${baseUrl}/${dataPath}/${id}`);
+}
+
+function editMovie(dataPath, id, movieData){
+    return request.put(`${baseUrl}/${dataPath}/${id}`, {...movieData, _id: id});
 }
 
 export default {
     addMovie,
     getAll,
     getOne,
-    deleteMovie
+    deleteMovie,
+    editMovie
 }
