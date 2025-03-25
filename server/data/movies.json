@@ -54,5 +54,16 @@
     "time": "192",
     "description": "Jake Sully lives with his newfound family formed on the extrasolar moon Pandora. Once a familiar threat returns to finish what was previously started, Jake must work with Neytiri and the army of the Na'vi race to protect their home.",
     "rating": 7.5
-  }
+  },
+  "90fdddfc-2024-44aa-b71c-74d48b0f95c7": {
+        "title": "The Godfather",
+        "poster": "https://m.media-amazon.com/images/M/MV5BNGEwYjgwOGQtYjg5ZS00Njc1LTk2ZGEtM2QwZWQ2NjdhZTE5XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+        "genre": "Drama",
+        "director": "Francis Ford Coppola",
+        "year": "1972",
+        "time": "175",
+        "description": "The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.",
+        "rating": "9.2",
+        "_id": "90fdddfc-2024-44aa-b71c-74d48b0f95c7"
+    }
 }
