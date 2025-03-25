@@ -1,7 +1,5 @@
 import './about.css'
 
-import backgroundImage from '../../../public/marvel.jpg'
-
 export default function About() {
   return (
       <div className="container">
@@ -9,7 +7,7 @@ export default function About() {
         <section
           className="hero-section"
           style={{
-            backgroundImage: `url(${backgroundImage})`
+            backgroundImage: "url('/marvel.jpg')"
           }}
         >
           <div className="hero-overlay"></div>
@@ -27,10 +25,10 @@ export default function About() {
         <section className="about-section">
           <h2>Welcome to MovieVerse!</h2>
           <p>
-            At MovieVerse, we are passionate about bringing you the best of entertainment. From the latest blockbusters to hidden gems, we aim to provide a comprehensive platform where movie buffs enthusiasts can discover and explore their favorite content.
+            At MovieVerse, we are passionate about bringing you the best of entertainment. From the latest blockbusters to hidden gems, we aim to provide a comprehensive platform where movie enthusiasts can discover and explore their favorite content.
           </p>
           <p>
-            Whether you're looking for the hottest new releases or timeless classics, CineHub has it all. Our platform is designed to offer easy navigation, stunning visuals, and a seamless user experience.
+            Whether you're looking for the hottest new releases or timeless classics, MovieVerse has it all. Our platform is designed to offer easy navigation, stunning visuals, and a seamless user experience.
           </p>
         </section>
   
@@ -40,7 +38,7 @@ export default function About() {
             <div className="team-member">
               <img
                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeeWrxKFS4kocpkdTI-Bx_4NfnoVsT4KddAw&s"
-                alt="Team Member"
+                alt="Daniel Uzunski"
                 className="team-member-img"
               />
               <p>Daniel Uzunski</p>
