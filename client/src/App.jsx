@@ -30,6 +30,7 @@ function App() {
         <Route path="/register" element={ <Register />} />
         <Route path="/movies/add" element={ <AddMovie />} />
         <Route path="/:path/:id/details" element={ <MovieDetails />} />
+        <Route path="/movies/:id/edit" element={ <AddMovie />} />
         <Route path="/about" element={ <About />} />
       </Routes>
 

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router";
+import { useParams, useNavigate, Link } from "react-router";
 import { FaEdit, FaTrash, FaThumbsUp, FaThumbsDown } from "react-icons/fa";
 
 import movieServices from "../../services/movieServices";
@@ -16,16 +16,20 @@ export default function MovieDetails() {
     movieServices.getOne(id, path).then(setMovie);
   }, [id]);
 
-  const deleteMovieHandler = () => {
+  const deleteMovieHandler = async () => {
     const confirmed = confirm('Are you sure you want to delete this movie? This action cannot be undone.')
 
     if (!confirmed){
       return
     }
 
-    movieServices.deleteMovie(path, id)
+    await movieServices.deleteMovie(path, id)
 
     navigate(`/${path}`);
+  }
+
+  const editMovieHandler = async () => {
+
   }
 
   return (
@@ -92,13 +96,12 @@ export default function MovieDetails() {
             ""
           ) : (
             <div className="flex flex-col lg:flex-row gap-3 mt-8 lg:absolute lg:bottom-15 lg:right-8 lg:space-x-4 w-full lg:w-auto">
-              <button className="bg-yellow-400 text-gray-900 px-4 py-2 rounded-full flex items-center gap-2 hover:bg-yellow-500 transition-all duration-300 w-full lg:w-auto"
-                
+              <Link to={`/movies/${id}/edit`} className="bg-yellow-400 text-gray-900 px-4 py-2 rounded-full flex items-center gap-2 hover:bg-yellow-500 transition-all duration-300 w-full lg:w-auto"
               >
                 <FaEdit />
                 Edit
-              </button>
-              <button className="bg-red-600 text-white px-4 py-2 rounded-full flex items-center gap-2 hover:bg-red-700 transition-all duration-300 w-full lg:w-auto"
+              </Link>
+              <button className="cursor-pointer bg-red-600 text-white px-4 py-2 rounded-full flex items-center gap-2 hover:bg-red-700 transition-all duration-300 w-full lg:w-auto"
                 onClick={deleteMovieHandler}
               >
                 <FaTrash />

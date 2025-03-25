@@ -21,7 +21,7 @@ async function getOne(id, dataPath) {
 }
 
 async function deleteMovie(dataPath, id) {
-    await request.delete(`${baseUrl}/${dataPath}/${id}`);
+    return await request.delete(`${baseUrl}/${dataPath}/${id}`);
 }
 
 export default {
