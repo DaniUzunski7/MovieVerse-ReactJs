@@ -20,8 +20,13 @@ async function getOne(id, dataPath) {
     return response;
 }
 
+async function deleteMovie(dataPath, id) {
+    await request.delete(`${baseUrl}/${dataPath}/${id}`);
+}
+
 export default {
     addMovie,
     getAll,
     getOne,
+    deleteMovie
 }

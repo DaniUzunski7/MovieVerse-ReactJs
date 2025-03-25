@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router";
+import { useParams, useNavigate } from "react-router";
 import { FaEdit, FaTrash, FaThumbsUp, FaThumbsDown } from "react-icons/fa";
 
 import movieServices from "../../services/movieServices";
-import Rating from "../rating/Rating";
 import ShowRating from "../rating/ShowRating";
 
 export default function MovieDetails() {
+  const navigate = useNavigate();
+
   const { path, id } = useParams();
 
   const [movie, setMovie] = useState({});
@@ -15,10 +16,22 @@ export default function MovieDetails() {
     movieServices.getOne(id, path).then(setMovie);
   }, [id]);
 
+  const deleteMovieHandler = () => {
+    const confirmed = confirm('Are you sure you want to delete this movie? This action cannot be undone.')
+
+    if (!confirmed){
+      return
+    }
+
+    movieServices.deleteMovie(path, id)
+
+    navigate(`/${path}`);
+  }
+
   return (
-    <div className=" relative container mx-auto py-10 px-6">
+    <div className=" relative container mx-auto py-7 px-6">
       <div className="flex flex-col lg:flex-row gap-8">
-        {/* Movie Poster */}
+        
         <div className="lg:w-1/3">
           <img
             src={movie.poster}
@@ -27,7 +40,6 @@ export default function MovieDetails() {
           />
         </div>
 
-        {/* Movie Details */}
         <div className="lg:w-2/3">
           <h1 className="text-4xl font-semibold text-yellow-400">
             {movie.title}
@@ -44,7 +56,6 @@ export default function MovieDetails() {
           <p className="text-gray-400 mt-2">Genre: {movie.genre}</p>
           <p className="text-gray-400 mt-2">Duration: {movie.time} min</p>
 
-          {/* Rating Section */}
           <div className="mt-6">
             <h3 className="text-2xl font-semibold text-gray-200">
               {path === 'movies'
@@ -77,16 +88,19 @@ export default function MovieDetails() {
             <span className={`relative ml-2`}>10</span>
           </button>
 
-          {/* Edit/Delete buttons */}
           {path === "upcoming" ? (
             ""
           ) : (
             <div className="flex flex-col lg:flex-row gap-3 mt-8 lg:absolute lg:bottom-15 lg:right-8 lg:space-x-4 w-full lg:w-auto">
-              <button className="bg-yellow-400 text-gray-900 px-4 py-2 rounded-full flex items-center gap-2 hover:bg-yellow-500 transition-all duration-300 w-full lg:w-auto">
+              <button className="bg-yellow-400 text-gray-900 px-4 py-2 rounded-full flex items-center gap-2 hover:bg-yellow-500 transition-all duration-300 w-full lg:w-auto"
+                
+              >
                 <FaEdit />
                 Edit
               </button>
-              <button className="bg-red-600 text-white px-4 py-2 rounded-full flex items-center gap-2 hover:bg-red-700 transition-all duration-300 w-full lg:w-auto">
+              <button className="bg-red-600 text-white px-4 py-2 rounded-full flex items-center gap-2 hover:bg-red-700 transition-all duration-300 w-full lg:w-auto"
+                onClick={deleteMovieHandler}
+              >
                 <FaTrash />
                 Delete
               </button>
