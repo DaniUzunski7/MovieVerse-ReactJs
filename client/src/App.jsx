@@ -13,8 +13,15 @@ import AddMovie from './components/addMovie/AddMovie'
 import {Routes, Route} from 'react-router'
 import MovieDetails from './components/movieDetails/MovieDetails'
 import About from './components/about/About'
+import { useState } from 'react'
 
 function App() {
+
+  const [user, setUser] = useState('');
+
+  const loginHandler = (email) => {
+    setUser(email)
+  }
 
   return (
     <>
@@ -26,7 +33,7 @@ function App() {
         <Route path="/movies" element={<Movies />} />
         <Route path="/upcoming" element={<Upcoming />} />
         <Route path="/highest-rated" element={<HighestRated />} />
-        <Route path="/login" element={ <Login />} />
+        <Route path="/login" element={ <Login onLogin={loginHandler} />} />
         <Route path="/register" element={ <Register />} />
         <Route path="/movies/add" element={ <AddMovie />} />
         <Route path="/:path/:id/details" element={ <MovieDetails />} />

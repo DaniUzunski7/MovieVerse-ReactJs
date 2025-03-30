@@ -1,21 +1,36 @@
+import { Link, useNavigate } from "react-router";
 import "./login.css"
 
 import { useState } from "react";
 
-export default function Login(){
+export default function Login({
+  onLogin
+}){
+    const navigate = useNavigate()
+
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+
+    const loginAction = (formData) => {
+      const email = formData.get('email');
+      console.log(email);
+      
+      onLogin(email);
+      
+      navigate('/movies');
+    }
     
     return (
         <div className="login-container">
         <div className="form-container">
           <h2 className="form-title">Login</h2>
-          <form className="form">
+          <form className="form" action={loginAction}>
             <div className="form-group">
               <label htmlFor="email">Email</label>
               <input
                 type="email"
                 id="email"
+                name="email"
                 placeholder="Enter your email"
                 className="form-input"
                 value={email}
@@ -27,6 +42,7 @@ export default function Login(){
               <input
                 type="password"
                 id="password"
+                name="password"
                 placeholder="Enter your password"
                 className="form-input"
                 value={password}
@@ -38,7 +54,7 @@ export default function Login(){
             </button>
           </form>
           <p className="redirect-text">
-            Don't have an account? <a href="/register">Register</a>
+            Don't have an account? <Link to="/register">Register</Link>
           </p>
         </div>
       </div>
