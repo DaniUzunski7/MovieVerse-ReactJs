@@ -4,6 +4,7 @@ import { FaEdit, FaTrash, FaThumbsUp, FaThumbsDown } from "react-icons/fa";
 
 import movieServices from "../../services/movieServices";
 import ShowRating from "../rating/ShowRating";
+import LikesSection from "../likesSection/LikesSection";
 
 export default function MovieDetails() {
   const navigate = useNavigate();
@@ -26,10 +27,6 @@ export default function MovieDetails() {
     await movieServices.deleteMovie(path, id)
 
     navigate(`/${path}`);
-  }
-
-  const editMovieHandler = async () => {
-
   }
 
   return (
@@ -73,24 +70,8 @@ export default function MovieDetails() {
            }
            
             </div>
-          <button
-            className={`relative top-7 mb-7 bg-yellow-400 text-gray-900 px-4 py-2 rounded-full transition-all duration-300 hover:bg-yellow-500 ${
-              "liked" ? "bg-yellow-500" : "bg-yellow-400"
-            }`}
-          >
-            <FaThumbsUp className="inline-block mr-2" />
-            {"liked" ? "Liked" : "Like"}
-            <span className={`relative ml-2`}>10</span>
-          </button>
-          <button
-            className={`relative top-7 mb-7 ml-2 bg-yellow-400 text-gray-900 px-4 py-2 rounded-full transition-all duration-300 hover:bg-yellow-500 ${
-              "disliked" ? "bg-yellow-500" : "bg-yellow-400"
-            }`}
-          >
-            <FaThumbsDown className="inline-block mr-2" />
-            {"liked" ? "Disliked" : "Dislike"}
-            <span className={`relative ml-2`}>10</span>
-          </button>
+
+          <LikesSection />
 
           {path === "upcoming" ? (
             ""
