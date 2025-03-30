@@ -13,11 +13,11 @@ export const showSuccessToast = (message) => {
     draggable: true,
     theme: "dark",
     style: {
-      background: "#2d2d2d",
-      color: "#ffd700",
-      fontWeight: "bold",
-      border: "1px solid #ffd700",
-      borderRadius: "8px",
+        background: "#15803d",
+        color: "white",  
+        fontWeight: "bold",
+        border: "1px solid #22c55e",
+        borderRadius: "8px",
     },
     progressStyle: { background: "#ffd700" },
   });
@@ -31,12 +31,12 @@ export const showErrorToast = (message) => {
     closeOnClick: true,
     pauseOnHover: true,
     draggable: true,
-    theme: "light",
+    theme: "dark",
     style: {
-      background: "#b91c1c", // Dark red
-      color: "#fff",
-      fontWeight: "bold",
-      borderRadius: "8px",
+        background: "#b91c1c",
+        color: "#fff",
+        fontWeight: "bold",
+        borderRadius: "8px",
     },
     progressStyle: { background: "#ff4747" },
   });
