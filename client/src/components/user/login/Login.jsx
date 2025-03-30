@@ -1,24 +1,29 @@
 import { Link, useNavigate } from "react-router";
 import "./login.css"
 
-import { useState } from "react";
+import { useActionState, useState } from "react";
+import { useLogin } from "../../../api/authAPI";
 
 export default function Login({
   onLogin
 }){
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+    const {login} = useLogin()
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    const loginAction = (formData) => {
-      const email = formData.get('email');
-      console.log(email);
+    const loginHandler = async (_, formData) => {
+      const data = Object.fromEntries(formData);
       
-      onLogin(email);
+      const serverData = await login(data.email, data.password)
+      
+      onLogin(serverData);
       
       navigate('/movies');
     }
+    
+    const [_, loginAction, isPending] = useActionState(loginHandler, {email: '', password: ''})
     
     return (
         <div className="login-container">
@@ -49,7 +54,7 @@ export default function Login({
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
-            <button type="submit" className="btn-submit">
+            <button type="submit" className="btn-submit" disabled={isPending}>
               Login
             </button>
           </form>

@@ -9,18 +9,19 @@ import Upcoming from './components/catalogs/Upcoming'
 import Login from './components/user/login/Login'
 import Register from './components/user/register/Register'
 import AddMovie from './components/addMovie/AddMovie'
-
-import {Routes, Route} from 'react-router'
 import MovieDetails from './components/movieDetails/MovieDetails'
 import About from './components/about/About'
+
+import {ToastContainer} from "react-toastify"
+import {Routes, Route} from 'react-router'
 import { useState } from 'react'
 
 function App() {
 
   const [user, setUser] = useState('');
 
-  const loginHandler = (email) => {
-    setUser(email)
+  const loginHandler = (userData) => {
+    setUser(userData);    
   }
 
   return (
@@ -36,10 +37,12 @@ function App() {
         <Route path="/login" element={ <Login onLogin={loginHandler} />} />
         <Route path="/register" element={ <Register />} />
         <Route path="/movies/add" element={ <AddMovie />} />
-        <Route path="/:path/:id/details" element={ <MovieDetails />} />
+        <Route path="/:path/:id/details" element={ <MovieDetails user={user}/>} />
         <Route path="/movies/:id/edit" element={ <AddMovie />} />
         <Route path="/about" element={ <About />} />
       </Routes>
+
+      <ToastContainer />
 
       <Footer />
       </div>
