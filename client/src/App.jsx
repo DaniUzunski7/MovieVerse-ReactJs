@@ -12,6 +12,8 @@ import AddMovie from './components/addMovie/AddMovie'
 import MovieDetails from './components/movieDetails/MovieDetails'
 import About from './components/about/About'
 
+import { UserContext } from './context/userContext'
+
 import {ToastContainer} from "react-toastify"
 import {Routes, Route} from 'react-router'
 import { useState } from 'react'
@@ -25,7 +27,8 @@ function App() {
   }
 
   return (
-    <>
+    <UserContext.Provider value={{...user, loginHandler}}>
+
     <div className="flex flex-col min-h-screen w-full bg-gray-900 text-yellow-400">
       <Header />
 
@@ -37,7 +40,7 @@ function App() {
         <Route path="/login" element={ <Login onLogin={loginHandler} />} />
         <Route path="/register" element={ <Register />} />
         <Route path="/movies/add" element={ <AddMovie />} />
-        <Route path="/:path/:id/details" element={ <MovieDetails user={user}/>} />
+        <Route path="/:path/:id/details" element={ <MovieDetails />} />
         <Route path="/movies/:id/edit" element={ <AddMovie />} />
         <Route path="/about" element={ <About />} />
       </Routes>
@@ -46,7 +49,8 @@ function App() {
 
       <Footer />
       </div>
-    </>
+
+    </ UserContext.Provider>
   )
 }
 

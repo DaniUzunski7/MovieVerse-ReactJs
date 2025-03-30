@@ -1,29 +1,31 @@
 import { Link, useNavigate } from "react-router";
 import "./login.css"
 
-import { useActionState, useState } from "react";
+import { useActionState, useContext, useState } from "react";
 import { useLogin } from "../../../api/authAPI";
+import { UserContext } from "../../../context/userContext";
 
-export default function Login({
-  onLogin
-}){
+export default function Login(){
+
     const navigate = useNavigate();
+
     const {login} = useLogin()
+    const {loginHandler} = useContext(UserContext)
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    const loginHandler = async (_, formData) => {
+    const userLoginHandler = async (_, formData) => {
       const data = Object.fromEntries(formData);
       
       const serverData = await login(data.email, data.password)
       
-      onLogin(serverData);
+      loginHandler(serverData);
       
       navigate('/movies');
     }
     
-    const [_, loginAction, isPending] = useActionState(loginHandler, {email: '', password: ''})
+    const [_, loginAction, isPending] = useActionState(userLoginHandler, {email: '', password: ''})
     
     return (
         <div className="login-container">
