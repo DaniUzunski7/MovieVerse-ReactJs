@@ -8,7 +8,9 @@
     "description": "After the devastating events of Avengers: Infinity War (2018), the universe is in ruins. With the help of remaining allies, the Avengers assemble once more in order to reverse Thanos' actions and restore balance to the universe.",
     "genre": "Superhero",
     "rating": 8.4,
-    "time": 181
+    "likes": 6,
+    "time": 181,
+    "createdAt": "2025-03-30T14:35:22.123Z"
   },
   "55d5cfbc-1234-450c-82f9-ffe73e69b9dd": {
     "_id": "55d5cfbc-1234-450c-82f9-ffe73e69b9dd",
@@ -19,7 +21,9 @@
     "description": "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O., but his tragic past may doom the project and his team to disaster.",
     "genre": "Action",
     "rating": 8.8,
-    "time": 148
+    "likes": 4,
+    "time": 148,
+     "createdAt": "2025-03-29T14:35:22.123Z"
   },
 
   "55d5cfbc-1129-450c-82f9-dde73e69b2dd": {
@@ -31,7 +35,9 @@
     "description": "When Earth becomes uninhabitable in the future, a farmer and ex-NASA pilot, Joseph Cooper, is tasked to pilot a spacecraft, along with a team of researchers, to find a new planet for humans.",
     "genre": "Sci-Fi",
     "rating": 8.7,
-    "time": 149
+    "likes": 7,
+    "time": 149,
+     "createdAt": "2025-03-30T10:35:22.123Z"
   },
   "55d5cfbc-1129-450c-82f9-qwe73e69b9dd": {
     "_id": "55d5cfbc-1129-450c-82f9-qwe73e69b9dd",
@@ -42,7 +48,9 @@
     "description": "When a menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman, James Gordon and Harvey Dent must work together to put an end to the madness.",
     "genre": "Action",
     "rating": 9.0,
-    "time": 152
+    "likes": 2,
+    "time": 152,
+     "createdAt": "2025-03-25T14:35:22.123Z"
   },
   "55d5cfbc-1129-450c-82f9-qwe233e69b9dd": {
     "_id": "55d5cfbc-1129-450c-82f9-qwe233e69b9dd",
@@ -53,7 +61,9 @@
     "year": "2022",
     "time": "192",
     "description": "Jake Sully lives with his newfound family formed on the extrasolar moon Pandora. Once a familiar threat returns to finish what was previously started, Jake must work with Neytiri and the army of the Na'vi race to protect their home.",
-    "rating": 7.5
+    "rating": 7.5,
+    "likes": 3,
+     "createdAt": "2025-03-31T14:35:22.123Z"
   },
   "90fdddfc-2024-44aa-b71c-74d48b0f95c7": {
         "title": "The Godfather",
@@ -64,6 +74,8 @@
         "time": "175",
         "description": "The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.",
         "rating": "9.2",
-        "_id": "90fdddfc-2024-44aa-b71c-74d48b0f95c7"
+        "likes": 6,
+        "_id": "90fdddfc-2024-44aa-b71c-74d48b0f95c7",
+         "createdAt": "2025-04-01T14:35:22.123Z"
     }
 }
