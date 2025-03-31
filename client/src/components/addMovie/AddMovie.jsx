@@ -1,47 +1,26 @@
 import "./addMovie.css"
 
-import movieServices from "../../services/movieServices.js";
+import { useNavigate} from "react-router";
 
-import { useNavigate, useParams } from "react-router";
-
-import { useEffect, useState } from "react";
-import { useCreateMovie } from "../../api/moviesAPI.js";
+import { useCreateMovie} from "../../api/moviesAPI.js";
 
 export default function AddContent(){
     const navigate = useNavigate();
-    const {add} = useCreateMovie()
 
-    const { id } = useParams();
-
-    const [movie, setMovie] = useState({ title: "", poster: "", genre: "", director: "", year: "", time: "", description: "", rating: "" })
-
-    if(id){
-      useEffect( () => {
-        movieServices.getOne(id, 'movies')  
-        .then(setMovie)
-      }, [])
-    }
-
-    const handleChange = (e) => {
-        setMovie({ ...movie, [e.target.name]: e.target.defaultValue });
-      };
+    const { add } = useCreateMovie();
 
       const submitAction = async (formData) => {
         const movieData = Object.fromEntries(formData);
-        
-        if(id){
-          await movieServices.editMovie('movies', id, movieData)
-        } else {
-          await add(movieData)
-        }
- 
+      
+        await add(movieData);
+
         navigate(`/movies`);
       };
       
     return (
         <div className="collection-container">
-        <h1 className="collection-title">{id ? 'Edit your favourite movie' : 'Add your favourite movie'}</h1>
-        <p className="collection-subtitle">{id ? '👀 I`m watching… No mistakes, please! 👀' : 'Sure it will be a good one.'}</p>
+        <h1 className="collection-title">Add your favourite movie</h1>
+        <p className="collection-subtitle">Sure it will be a good one.</p>
   
         <form className="collection-form" action={submitAction}>
   <div className="form-group">
@@ -51,8 +30,6 @@ export default function AddContent(){
       id="title"
       name="title"
       placeholder="Enter movie title"
-      defaultValue={movie.title}
-      onChange={handleChange}
       required
     />
   </div>
@@ -64,8 +41,6 @@ export default function AddContent(){
       id="poster"
       name="poster"
       placeholder="Enter poster URL"
-      defaultValue={movie.poster}
-      onChange={handleChange}
       required
     />
   </div>
@@ -77,8 +52,6 @@ export default function AddContent(){
       id="genre"
       name="genre"
       placeholder="Enter genre"
-      defaultValue={movie.genre}
-      onChange={handleChange}
       required
     />
   </div>
@@ -90,8 +63,6 @@ export default function AddContent(){
       id="director"
       name="director"
       placeholder="Enter director"
-      defaultValue={movie.director}
-      onChange={handleChange}
       required
     />
   </div>
@@ -103,8 +74,6 @@ export default function AddContent(){
       id="year"
       name="year"
       placeholder="Enter release year"
-      defaultValue={movie.year}
-      onChange={handleChange}
       required
     />
   </div>
@@ -116,8 +85,6 @@ export default function AddContent(){
       id="time"
       name="time"
       placeholder="Enter movie time"
-      defaultValue={movie.time}
-      onChange={handleChange}
       required
     />
   </div>
@@ -128,8 +95,6 @@ export default function AddContent(){
       id="description"
       name="description"
       placeholder="Enter movie description"
-      defaultValue={movie.description}
-      onChange={handleChange}
       required
     />
   </div>
@@ -141,13 +106,11 @@ export default function AddContent(){
       id="rating"
       name="rating"
       placeholder="Enter rating"
-      defaultValue={movie.rating}
-      onChange={handleChange}
       required
     />
   </div>
 
-  <button type="submit" className="submit-btn">{id ? 'Edit' : 'Add'} Movie</button>
+  <button type="submit" className="submit-btn">Add Movie</button>
 </form>
       </div>
     )
