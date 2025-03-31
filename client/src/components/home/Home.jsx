@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 import HeroSection from "./heroSection/HeroSection";
 import movieServices from "../../services/movieServices";
-import HomeGrid from "../HomeGrid";
+import HomeGrid from "./HomeGrid";
 
 export default function Home(){
     const [movieCategory, setMovieCategory] = useState("lastAdded");
