@@ -33,7 +33,7 @@ export default function AddContent(){
           await movieServices.addMovie(movieData, 'movies');
         }
 
-        navigate(`/movies/${id}/details`);
+        navigate(`/movies`);
       };
       
     return (

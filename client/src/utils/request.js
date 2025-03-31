@@ -11,7 +11,11 @@ const request = async (method, url, data, options = {}) => {
                 'Content-type': 'application/json',
                 ...options.headers,
             },
-            body: JSON.stringify(data)
+            body: JSON.stringify({
+                ...data,
+                likes: 0,
+                createdAt: new Date()
+            })
         }
     }
 
