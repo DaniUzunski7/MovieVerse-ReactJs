@@ -1,10 +1,9 @@
-import { useContext, useState, useEffect } from "react";
+import {useState, useEffect } from "react";
 import request from "../utils/request"
-import { UserContext } from "../context/userContext";
 import useAuth from "../hooks/useAuth";
 
 
-const baseUrl =  'http://localhost:3030/data/movie-verse'
+const baseUrl =  'http://localhost:3030/data/movies'
 
 export const useCreateMovie = () => {
     const { options } = useAuth();

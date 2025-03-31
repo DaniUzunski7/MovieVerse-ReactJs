@@ -33,7 +33,7 @@ export default function Home(){
           </div>
           
           {movieCategory === 'lastAdded'
-            ? <HomeGrid movies={movies} category={movieCategory}/>
+            ? <HomeGrid movies={movies.slice(0,4)} category={movieCategory}/>
             : <HomeGrid movies={upcoming} category={movieCategory}/>
           }
           
