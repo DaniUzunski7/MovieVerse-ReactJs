@@ -14,7 +14,7 @@ export default function EditMovie() {
   const submitAction = async (formData) => {
     const movieData = Object.fromEntries(formData);
 
-    await edit(id, movieData);
+    await edit(id, {...movieData, likes: movie.likes});
 
     navigate(`/movies/${id}/details`);
   };

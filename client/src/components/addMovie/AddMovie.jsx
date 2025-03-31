@@ -12,7 +12,7 @@ export default function AddContent(){
       const submitAction = async (formData) => {
         const movieData = Object.fromEntries(formData);
       
-        await add(movieData);
+        await add({...movieData, likes: 0});
 
         navigate(`/movies`);
       };

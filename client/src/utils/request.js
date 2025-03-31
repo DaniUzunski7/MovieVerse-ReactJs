@@ -13,7 +13,6 @@ const request = async (method, url, data, options = {}) => {
             },
             body: JSON.stringify({
                 ...data,
-                likes: 0,
             })
         }
     }

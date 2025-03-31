@@ -4,7 +4,6 @@ import { UserContext } from "../context/userContext";
 export default function useAuth() {
     const { accessToken } = useContext(UserContext);
 
-    
     const options = {
         headers: {
             'X-Authorization': accessToken
