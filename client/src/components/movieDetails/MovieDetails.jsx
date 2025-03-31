@@ -7,7 +7,7 @@ import ShowRating from "../rating/ShowRating";
 import LikesSection from "../likesSection/LikesSection";
 
 import { UserContext } from "../../context/userContext";
-import { useGetMovie } from "../../api/moviesAPI";
+import { useDeleteMovie, useGetMovie } from "../../api/moviesAPI";
 
 export default function MovieDetails() {
   const navigate = useNavigate();
@@ -16,6 +16,8 @@ export default function MovieDetails() {
   const { path, id } = useParams();
 
   const { movie } = useGetMovie(id);
+
+  const { deleteMovie } = useDeleteMovie()
     
   const deleteMovieHandler = async () => {
     const confirmed = confirm('Are you sure you want to delete this movie? This action cannot be undone.')
@@ -24,9 +26,9 @@ export default function MovieDetails() {
       return
     }
 
-    await movieServices.deleteMovie(path, id)
+    await deleteMovie(id);
 
-    navigate(`/${path}`);
+    navigate('/movies');
   }
 
   const likeHandler = (newLikesCount) => {
