@@ -19,6 +19,7 @@ import { Routes, Route } from "react-router";
 import { useState } from "react";
 import Logout from "./components/user/logout/Logout";
 import UserDetails from "./components/user/details/UserDetails";
+import EditMovie from "./components/editMovie/EditMovie";
 
 function App() {
   const [user, setUser] = useState("");
@@ -44,7 +45,7 @@ function App() {
           <Route path="/highest-rated" element={<HighestRated />} />
           <Route path="/movies/add" element={<AddMovie />} />
           <Route path="/:path/:id/details" element={<MovieDetails />} />
-          <Route path="/movies/:id/edit" element={<AddMovie />} />
+          <Route path="/movies/:id/edit" element={<EditMovie />} />
 
           <Route path="/login" element={<Login onLogin={loginHandler} />} />
           <Route path="/register" element={<Register />} />
