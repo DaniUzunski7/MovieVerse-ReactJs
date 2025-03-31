@@ -26,9 +26,14 @@ function App() {
     setUser(userData);
   };
 
+  const logoutHandler = () => {
+    setUser({});
+  }
+
   return (
-    <UserContext.Provider value={{ ...user, loginHandler }}>
+    <UserContext.Provider value={{ ...user, loginHandler, logoutHandler }}>
       <div className="flex flex-col min-h-screen w-full bg-gray-900 text-yellow-400">
+        <Header userName={user.userName}/>
 
         <Routes>
           <Route path="/" element={<Home />} />
