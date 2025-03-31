@@ -14,7 +14,6 @@ const request = async (method, url, data, options = {}) => {
             body: JSON.stringify({
                 ...data,
                 likes: 0,
-                createdAt: new Date()
             })
         }
     }

@@ -5,9 +5,11 @@ import movieServices from "../../services/movieServices.js";
 import { useNavigate, useParams } from "react-router";
 
 import { useEffect, useState } from "react";
+import { useCreateMovie } from "../../api/moviesAPI.js";
 
 export default function AddContent(){
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+    const {add} = useCreateMovie()
 
     const { id } = useParams();
 
@@ -30,9 +32,9 @@ export default function AddContent(){
         if(id){
           await movieServices.editMovie('movies', id, movieData)
         } else {
-          await movieServices.addMovie(movieData, 'movies');
+          await add(movieData)
         }
-
+ 
         navigate(`/movies`);
       };
       
