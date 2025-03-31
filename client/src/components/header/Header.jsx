@@ -96,7 +96,7 @@ export default function Header({
 
         {user.email 
           ? <>
-             <Link to='/user/details' className="bg-yellow-400 text-gray-900 px-4 py-2 rounded-full hover:bg-yellow-300">
+             <Link to={`/user/${user._id}/details`} className="bg-yellow-400 text-gray-900 px-4 py-2 rounded-full hover:bg-yellow-300">
                 {userName}
               </Link>
             <Link to="/logout" className=" hidden md:block bg-gray-700 text-white px-4 py-2 rounded-full hover:bg-gray-600"> 

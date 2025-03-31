@@ -18,6 +18,7 @@ import { ToastContainer } from "react-toastify";
 import { Routes, Route } from "react-router";
 import { useState } from "react";
 import Logout from "./components/user/logout/Logout";
+import UserDetails from "./components/user/details/UserDetails";
 
 function App() {
   const [user, setUser] = useState("");
@@ -48,6 +49,7 @@ function App() {
           <Route path="/login" element={<Login onLogin={loginHandler} />} />
           <Route path="/register" element={<Register />} />
           <Route path="/logout" element={<Logout />} />
+          <Route path="/user/:id/details" element={ <UserDetails /> } />
 
           <Route path="/about" element={<About />} />
         </Routes>
