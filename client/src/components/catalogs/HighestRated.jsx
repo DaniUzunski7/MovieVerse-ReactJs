@@ -1,17 +1,11 @@
 import { useEffect, useState } from "react";
 import movieServices from "../../services/movieServices";
+import { useMovies } from "../../api/moviesAPI";
 
 export default function HighestRated() {
+
+    const {movies} = useMovies();
     
-    const [movies, setMovies] = useState([]);
-    const [error, setError] = useState();
-
-    useEffect( () => {
-      movieServices.getAll('movies')
-        .then(setMovies)
-        .catch(setError)
-    }, [])
-
     movies.sort( (a, b) => b.rating - a.rating).slice(0, 9);    
 
     return (
