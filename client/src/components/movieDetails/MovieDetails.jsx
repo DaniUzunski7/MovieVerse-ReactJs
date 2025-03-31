@@ -31,12 +31,7 @@ export default function MovieDetails() {
     navigate('/movies');
   }
 
-  const likeHandler = (newLikesCount) => {
-
-    setMovie(state => ( {...state, likes: newLikesCount} ));
-    
-    movieServices.editMovie('movies', id, {...movie, likes: newLikesCount});
-  }
+  const addDate = new Date(movie._createdOn).toLocaleDateString()
 
   return (
     <div className=" relative container mx-auto py-7 px-6">
@@ -65,6 +60,8 @@ export default function MovieDetails() {
           <p className="text-gray-400 mt-2">Director: {movie.director}</p>
           <p className="text-gray-400 mt-2">Genre: {movie.genre}</p>
           <p className="text-gray-400 mt-2">Duration: {movie.time} min</p>
+          <p className="text-gray-400 mt-2">Added on: {addDate}</p>
+          
 
           <div className="mt-6">
             <h3 className="text-2xl font-semibold text-gray-200">
@@ -80,7 +77,7 @@ export default function MovieDetails() {
            
             </div>
 
-          {user && <LikesSection user={user.email} likes={movie.likes} onLike={likeHandler}/>}
+          {user && <LikesSection user={user.email} likes={movie.likes}/>}
 
           {path === "upcoming" ? (
             ""
