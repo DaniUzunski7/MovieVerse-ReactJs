@@ -1,16 +1,9 @@
-import { useContext } from "react";
+import { useContext, useState, useEffect } from "react";
 import request from "../utils/request"
 import { UserContext } from "../context/userContext";
 
 
 const baseUrl =  'http://localhost:3030/data/movie-verse'
-
-async function getAll(dataPath){
-    
-    const response = await request.get(`${baseUrl}/${dataPath}`);
-    
-    return Object.values(response)
-}
 
  function getOne(id, dataPath) {    
     return request.get(`${baseUrl}/${dataPath}/${id}`);
@@ -25,7 +18,6 @@ function editMovie(dataPath, id, movieData){
 }
 
 export default {
-    getAll,
     getOne,
     deleteMovie,
     editMovie
@@ -47,4 +39,17 @@ export const useCreateMovie = () => {
     return {
         add
     }
+}
+
+export const useMovies = () => {
+    const [movies, setMovies] = useState();
+    
+    useEffect( () => {
+        request.get(baseUrl)
+            .then(setMovies)
+    }, [])
+
+    return {
+        movies
+    };
 }

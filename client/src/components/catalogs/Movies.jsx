@@ -1,21 +1,13 @@
 import { Link } from "react-router";
-import { useState, useEffect } from "react";
+import { useMovies } from "../../api/moviesAPI";
 
 import Pagination from "../Pagination";
-import movieServices from "../../services/movieServices";
 import MovieCard from "../MovieCard";
 import NoContent from "../NoContent";
 
 export default function Movies() {
-    const [movies, setMovies] = useState([]);
-    const [error, setError] = useState();
-
-    useEffect( () => {
-      movieServices.getAll('movies')
-        .then(setMovies)
-        .catch(setError);
-    }, [])
-  
+    const {movies} = useMovies();
+    
     return (
     <div className="bg-gray-900 text-yellow-400 min-h-screen py-8 px-6">
       <h1 className="text-3xl font-bold text-center mb-8">Movies</h1>
@@ -29,15 +21,15 @@ export default function Movies() {
         </Link>
       </div>
 
-         {movies.length > 0
+         {movies
          ? <div className="grid grid-cols-3 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {movies.map(movie =>  <MovieCard key={movie._id} {...movie} error={error} path="movies"/>) }
+              {movies.map(movie =>  <MovieCard key={movie._id} {...movie} path="movies"/>) }
             </div>
           : <NoContent />
         }
         
 
-        {movies.length > 0
+        {movies
           ? <Pagination />
           : null
         }
