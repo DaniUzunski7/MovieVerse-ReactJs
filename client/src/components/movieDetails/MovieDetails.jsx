@@ -1,22 +1,22 @@
-import { useState, useEffect } from "react";
+import {useContext } from "react";
 import { useParams, useNavigate, Link } from "react-router";
-import { FaEdit, FaTrash, FaThumbsUp, FaThumbsDown } from "react-icons/fa";
+import { FaEdit, FaTrash } from "react-icons/fa";
 
 import movieServices from "../../services/movieServices";
 import ShowRating from "../rating/ShowRating";
 import LikesSection from "../likesSection/LikesSection";
 
+import { UserContext } from "../../context/userContext";
+import { useGetMovie } from "../../api/moviesAPI";
+
 export default function MovieDetails() {
   const navigate = useNavigate();
+  const user = useContext(UserContext);
 
   const { path, id } = useParams();
 
-  const [movie, setMovie] = useState({});
-
-  useEffect(() => {
-    movieServices.getOne(id, path).then(setMovie);
-  }, [id]);
-
+  const { movie } = useGetMovie(id);
+    
   const deleteMovieHandler = async () => {
     const confirmed = confirm('Are you sure you want to delete this movie? This action cannot be undone.')
 
@@ -27,6 +27,13 @@ export default function MovieDetails() {
     await movieServices.deleteMovie(path, id)
 
     navigate(`/${path}`);
+  }
+
+  const likeHandler = (newLikesCount) => {
+
+    setMovie(state => ( {...state, likes: newLikesCount} ));
+    
+    movieServices.editMovie('movies', id, {...movie, likes: newLikesCount});
   }
 
   return (
@@ -71,7 +78,7 @@ export default function MovieDetails() {
            
             </div>
 
-          <LikesSection />
+          {user && <LikesSection user={user.email} likes={movie.likes} onLike={likeHandler}/>}
 
           {path === "upcoming" ? (
             ""

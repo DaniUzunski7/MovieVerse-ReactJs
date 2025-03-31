@@ -53,3 +53,16 @@ export const useMovies = () => {
         movies
     };
 }
+
+export const useGetMovie = (id) => {
+    const [movie, setMovie] = useState({});
+    
+    useEffect( () => {
+        request.get(`${baseUrl}/${id}`)
+            .then(setMovie);
+    }, [id])
+    
+    return {
+        movie
+    }
+}
