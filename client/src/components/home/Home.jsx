@@ -3,29 +3,21 @@ import { useEffect, useState } from "react";
 import HeroSection from "./heroSection/HeroSection";
 import movieServices from "../../services/movieServices";
 import HomeGrid from "./HomeGrid";
+import { useMovies } from "../../api/moviesAPI";
 
 export default function Home(){
     const [movieCategory, setMovieCategory] = useState("lastAdded");
-    
-    const [movies, setMovies] = useState([]);
     const [upcoming, setUpcomming] = useState([]);
+    
+    const { movies } = useMovies();
 
       useEffect( () => {
-
-        if(movieCategory === 'upcoming'){
           movieServices.getAll('upcoming')
           .then((data) => {
             setUpcomming(data.slice(-4).reverse());
           })
-        } else {
-
-          movieServices.getAll('movies')
-          .then((data) => {
-            setMovies(data.sort( (a, b) => new Date(b.createdAt) - new Date(a.createdAt)).slice(0, 4));
-          })
-        } 
         }, [movieCategory])
-        
+      
     return (
         
         <main className="flex-grow p-6">

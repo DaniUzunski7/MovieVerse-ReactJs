@@ -19,7 +19,7 @@ export const useCreateMovie = () => {
 }
 
 export const useMovies = () => {
-    const [movies, setMovies] = useState();
+    const [movies, setMovies] = useState([]);
     
     useEffect( () => {
         request.get(baseUrl)
