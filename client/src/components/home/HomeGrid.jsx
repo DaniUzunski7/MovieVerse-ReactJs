@@ -11,7 +11,7 @@ export default function HomeGrid({
                   <h2 className="text-lg font-bold text-yellow-400 mb-0.5">{movie.title}</h2>
                   {category === 'upcoming'
                     ? <p className="text-gray-400 text-sm">Relase date: {movie.year}</p>
-                    : <p className="text-gray-400 text-sm">Added: {new Date(movie.createdAt).toLocaleString()}</p> 
+                    : <p className="text-gray-400 text-sm">Added: {new Date(movie._createdOn).toLocaleString()}</p> 
                   }
                 </div>
               </div>

@@ -3,13 +3,13 @@ import { useEffect, useState } from "react";
 import HeroSection from "./heroSection/HeroSection";
 import movieServices from "../../services/movieServices";
 import HomeGrid from "./HomeGrid";
-import { useMovies } from "../../api/moviesAPI";
+import { useLatest } from "../../api/moviesAPI";
 
 export default function Home(){
     const [movieCategory, setMovieCategory] = useState("lastAdded");
     const [upcoming, setUpcomming] = useState([]);
     
-    const { movies } = useMovies();
+    const { movies } = useLatest();
 
       useEffect( () => {
           movieServices.getAll('upcoming')
@@ -33,7 +33,7 @@ export default function Home(){
           </div>
           
           {movieCategory === 'lastAdded'
-            ? <HomeGrid movies={movies.slice(0,4)} category={movieCategory}/>
+            ? <HomeGrid movies={movies} category={movieCategory}/>
             : <HomeGrid movies={upcoming} category={movieCategory}/>
           }
           

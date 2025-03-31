@@ -30,6 +30,19 @@ export const useMovies = () => {
     };
 }
 
+export const useLatest = () => {
+    const [movies, setMovies] = useState([]);
+
+    useEffect( () => {
+        request.get(`${baseUrl}?sortBy=_createdOn%20desc&pageSize=4`)
+            .then(setMovies)
+    }, []);
+
+    return {
+        movies
+    }
+}
+
 export const useGetMovie = (id) => {
     const [movie, setMovie] = useState({});
     
