@@ -1,13 +1,17 @@
 import "./editMovie.css";
 
-import { useNavigate, useParams } from "react-router";
+import { Navigate, useNavigate, useParams } from "react-router";
 
 import { useEditMovie, useGetMovie } from "../../api/moviesAPI";
+import { useContext } from "react";
+import { UserContext } from "../../context/UserContext";
 
 export default function EditMovie() {
   const navigate = useNavigate();
-  const { id } = useParams();
 
+  const user = useContext(UserContext);
+  
+  const { id } = useParams();
   const { edit } = useEditMovie();
   const { movie } = useGetMovie(id);
 
@@ -18,6 +22,12 @@ export default function EditMovie() {
 
     navigate(`/movies/${id}/details`);
   };
+
+  const isOwner = user._id === movie._ownerId;
+  
+  if(!isOwner){
+    return <Navigate to="/movies" />
+  }
 
   return (
     <div className="collection-container">
