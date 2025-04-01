@@ -31,8 +31,9 @@ export default function MovieDetails() {
     navigate('/movies');
   }
 
-  const addDate = new Date(movie._createdOn).toLocaleDateString()
-
+  const addDate = new Date(movie._createdOn).toLocaleDateString();
+  const isOwner = user._id === movie.owner
+  
   return (
     <div className=" relative container mx-auto py-7 px-6">
       <div className="flex flex-col lg:flex-row gap-8">
@@ -51,12 +52,8 @@ export default function MovieDetails() {
           </h1>
           <p className="text-lg text-gray-300 mt-2">{movie.description}</p>
           <p className="text-gray-400 mt-4">
-            {path !== 'upcomming'
-              ? 'Released: '
-              : 'Expected release date: '
-            } 
-            {movie.year}
-            </p>
+              Released: { movie.year}
+          </p>
           <p className="text-gray-400 mt-2">Director: {movie.director}</p>
           <p className="text-gray-400 mt-2">Genre: {movie.genre}</p>
           <p className="text-gray-400 mt-2">Duration: {movie.time} min</p>
@@ -77,9 +74,9 @@ export default function MovieDetails() {
            
             </div>
 
-          {user && <LikesSection user={user.email} likes={movie.likes}/>}
+          {user._id && <LikesSection user={user.email} likes={movie.likes}/>}
 
-          {path === "upcoming" ? (
+          {!isOwner || !user._id ? (
             ""
           ) : (
             <div className="flex flex-col lg:flex-row gap-3 mt-8 lg:absolute lg:bottom-15 lg:right-8 lg:space-x-4 w-full lg:w-auto">
