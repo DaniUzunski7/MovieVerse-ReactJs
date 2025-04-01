@@ -48,7 +48,6 @@ function App() {
           <Route path="/movies/add" element={<AddMovie />} />
           <Route path="/movies/:id/edit" element={<EditMovie />} />
           
-          <Route path="/user/:id/details" element={ <UserDetails /> } />
           <Route path="/logout" element={<Logout />} />
           
           </Route>

@@ -3,11 +3,17 @@ import { Link } from "react-router";
 
 import { FaSearch, FaFilm, FaBars, FaTimes } from "react-icons/fa";
 import { UserContext } from "../../context/UserContext";
+import UserDetails from "../user/details/UserDetails";
 
 export default function Header() {
   const user = useContext(UserContext);
   
   const [menuOpen, setMenuOpen] = useState(false);
+  const [showDetails, setShowDetails] = useState(false);
+
+  const showDetailsHandler = () => {
+    setShowDetails(!showDetails);
+  }
   
   return (
     <header className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-700 text-white py-4 px-4 md:px-6 flex items-center justify-between shadow-lg w-full">
@@ -92,11 +98,11 @@ export default function Header() {
           <FaSearch className="absolute right-3 top-3 text-yellow-400" />
         </div>
 
-        {user.email 
+        {user.email
           ? <>
-             <Link to={`/user/${user._id}/details`} className="bg-yellow-400 text-gray-900 px-4 py-2 rounded-full hover:bg-yellow-300">
+             <button onClick={showDetailsHandler} className="bg-yellow-400 text-gray-900 px-4 py-2 rounded-full hover:bg-yellow-300">
                 {user.userName}
-              </Link>
+              </button>
             <Link to="/logout" className=" hidden md:block bg-gray-700 text-white px-4 py-2 rounded-full hover:bg-gray-600"> 
               Logout 
             </Link>
@@ -111,6 +117,8 @@ export default function Header() {
             </>
         }
       </div>
+      {showDetails && <UserDetails onClose={showDetailsHandler} />}
     </header>
+
   );
 }
