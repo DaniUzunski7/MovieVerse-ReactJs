@@ -16,13 +16,14 @@ import { UserContext } from "./context/userContext";
 
 import { ToastContainer } from "react-toastify";
 import { Routes, Route } from "react-router";
-import { useState } from "react";
+
 import Logout from "./components/user/logout/Logout";
 import UserDetails from "./components/user/details/UserDetails";
 import EditMovie from "./components/editMovie/EditMovie";
+import usePersistedState from "./hooks/usePersistedState";
 
 function App() {
-  const [user, setUser] = useState("");
+  const [user, setUser] = usePersistedState('auth', {});
 
   const loginHandler = (userData) => {
     setUser(userData);

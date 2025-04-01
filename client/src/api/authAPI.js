@@ -7,9 +7,9 @@ const baseUrl = "http://localhost:3030/users";
 
 export const useLogin = () => {
   const login = (email, password) => {
-    const data = request.post(`${baseUrl}/login`, { email, password });
+    const user = request.post(`${baseUrl}/login`, { email, password });
 
-    return data;
+    return user;
   };
 
   return {
