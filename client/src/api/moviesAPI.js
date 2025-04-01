@@ -26,7 +26,7 @@ export const useMovies = (page) => {
         })
     
         useEffect( () => {
-            request.get(`${baseUrl}?${searchParams}`)
+            request.get(`${baseUrl}?${searchParams.toString()}`)
                 .then(setMovies)
         }, [page])
 
@@ -77,7 +77,7 @@ export const useTopRated = () => {
             sortBy: 'rating desc'
         });
 
-        request.get(`${baseUrl}?${searchParams}`)
+        request.get(`${baseUrl}?${searchParams.toString()}`)
             .then(setMovies)
     }, []);
 

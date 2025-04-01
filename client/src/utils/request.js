@@ -1,3 +1,4 @@
+
 const request = async (method, url, data, options = {}) => {
 
     if (method !== 'GET'){   
@@ -17,16 +18,20 @@ const request = async (method, url, data, options = {}) => {
         }
     }
 
-    const response = await fetch(url, options);
+        const response = await fetch(url, options);
+        
+        if(!response.ok){
+            throw new Error(response.statusText)
+        }
+
+        const responseContentType = response.headers.get('Content-Type');
+        if(!responseContentType){
+            return
+        }
     
-    const responseContentType = response.headers.get('Content-Type');
-    if(!responseContentType){
-        return
-    }
-
-    const result = await response.json();
-
-    return result;
+        const result = await response.json();
+    
+        return result;
 }
 
 export default {
