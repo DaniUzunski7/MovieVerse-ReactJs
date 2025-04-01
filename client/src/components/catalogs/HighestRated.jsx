@@ -1,12 +1,10 @@
-import { useEffect, useState } from "react";
-import movieServices from "../../services/movieServices";
-import { useMovies } from "../../api/moviesAPI";
+import { useTopRated } from "../../api/moviesAPI";
 
 export default function HighestRated() {
 
-    const {movies} = useMovies();
+    const {movies} = useTopRated();
+    console.log(movies);
     
-    movies.sort( (a, b) => b.rating - a.rating).slice(0, 9);    
 
     return (
     <div className="bg-gray-900 text-yellow-400 min-h-screen py-8 px-6">

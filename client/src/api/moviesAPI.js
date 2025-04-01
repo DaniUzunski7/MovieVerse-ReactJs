@@ -68,6 +68,23 @@ export const useLatest = () => {
     }
 }
 
+export const useTopRated = () => {
+    const [movies, setMovies] = useState([]);
+
+    useEffect( () => {
+        const searchParams = new URLSearchParams({
+            sortBy: 'rating desc'
+        });
+
+        request.get(`${baseUrl}?${searchParams}`)
+            .then(setMovies)
+    }, []);
+
+    return {
+        movies
+    }
+}
+
 export const useGetMovie = (id) => {
     const [movie, setMovie] = useState({});
     
