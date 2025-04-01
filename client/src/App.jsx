@@ -21,6 +21,7 @@ import UserDetails from "./components/user/details/UserDetails";
 import EditMovie from "./components/editMovie/EditMovie";
 import UserProvider from "./context/UserContext";
 import AuthGuard from "./components/guards/AuthGuard";
+import GuestGuard from "./components/guards/GuestGuard";
 
 function App() {
 
@@ -39,9 +40,7 @@ function App() {
           <Route path="/highest-rated" element={<HighestRated />} />
           <Route path="/:path/:id/details" element={<MovieDetails />} />
 
-          <Route path="/login" element={<Login/>} />
-          <Route path="/register" element={<Register />} />
-
+          <Route path="/about" element={<About />} />
 
           <Route element={ <AuthGuard /> }>
           
@@ -52,8 +51,12 @@ function App() {
           
           </Route>
 
-          <Route path="/about" element={<About />} />
-        
+          <Route element={ <GuestGuard /> }>
+          
+          <Route path="/login" element={<Login/>} />
+          <Route path="/register" element={<Register />} />
+          
+          </Route>        
         </Routes>
 
         <ToastContainer />
