@@ -25,7 +25,7 @@ export default function Login(){
       loginHandler(serverData);
       
       showSuccessToast('Login successful')
-      navigate('/movies');
+      navigate(-1);
     }
     
     const [_, loginAction, isPending] = useActionState(userLoginHandler, {email: '', password: ''})
