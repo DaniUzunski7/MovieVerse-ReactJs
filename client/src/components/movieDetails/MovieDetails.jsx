@@ -74,7 +74,7 @@ export default function MovieDetails() {
            
             </div>
 
-          {user._id && <LikesSection user={user.email} likes={movie.likes}/>}
+          {user._id && <LikesSection userId={user._id} movieId={movie._id} />}
 
           {!isOwner || !user._id ? (
             ""
