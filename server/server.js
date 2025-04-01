@@ -1458,7 +1458,7 @@
     movies: {
       "1240549d-f0e0-497e-ab99-eb8f703713d7": {
         _id: "1240549d-f0e0-497e-ab99-eb8f703713d7",
-        owner: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+        _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
         title: "Avatar: The way of water",
         poster:
           "https://m.media-amazon.com/images/M/MV5BNmQxNjZlZTctMWJiMC00NGMxLWJjNTctNTFiNjA1Njk3ZDQ5XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
@@ -1474,7 +1474,7 @@
       },
       "77d7cfbc-1129-450c-82f9-ffe73e69b9dd": {
         _id: "77d7cfbc-1129-450c-82f9-ffe73e69b9dd",
-        owner: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+        _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
         title: "Avengers: Endgame",
         poster: "https://m.media-amazon.com/images/M/MV5BMTc5MDE2ODcwNV5BMl5BanBnXkFtZTgwMzI2NzQ2NzM@._V1_FMjpg_UX1000_.jpg",
         year: 2019,
@@ -1488,7 +1488,7 @@
       },
       "55d5cfbc-1234-450c-82f9-ffe73e69b9dd": {
         _id: "55d5cfbc-1234-450c-82f9-ffe73e69b9dd",
-        owner: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+        _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
         title: "Inception",
         poster: "https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_FMjpg_UX1000_.jpg",
         year: 2010,
@@ -1503,7 +1503,7 @@
     
       "55d5cfbc-1129-450c-82f9-dde73e69b2dd": {
         _id: "55d5cfbc-1129-450c-82f9-dde73e69b2dd",
-        owner: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+        _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
         title: "Interstellar",
         poster: "https://m.media-amazon.com/images/M/MV5BYzdjMDAxZGItMjI2My00ODA1LTlkNzItOWFjMDU5ZDJlYWY3XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
         year: 2014,
@@ -1517,7 +1517,7 @@
       },
       "55d5cfbc-1129-450c-82f9-qwe73e69b9dd": {
         _id: "55d5cfbc-1129-450c-82f9-qwe73e69b9dd",
-        owner: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+        _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
         title: "The Dark Knight",
         poster: "https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_FMjpg_UX1000_.jpg",
         year: 2008,
@@ -1531,7 +1531,7 @@
       },
       "90fdddfc-2024-44aa-b71c-74d48b0f95c7": {
             title: "The Godfather",
-            owner: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+            _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
             poster: "https://m.media-amazon.com/images/M/MV5BNGEwYjgwOGQtYjg5ZS00Njc1LTk2ZGEtM2QwZWQ2NjdhZTE5XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
             genre: "Drama",
             director: "Francis Ford Coppola",
@@ -1544,7 +1544,11 @@
             _createdOn: 1742083200000
         }
     },
-    likes: {},
+    likes: {
+      "1240549d-f0e0-497e-ab99-eb8f703713d7": [
+        "35c62d76-8152-4626-8712-eeb96381bea8"
+      ]
+    },
     ideas: {
       "833e0e57-71dc-42c0-b387-0ce0caf5225e": {
         _ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
