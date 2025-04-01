@@ -5,6 +5,7 @@ import { Navigate, useNavigate, useParams } from "react-router";
 import { useEditMovie, useGetMovie } from "../../api/moviesAPI";
 import { useContext } from "react";
 import { UserContext } from "../../context/UserContext";
+import { showSuccessToast } from "../toasts/ShowToast";
 
 export default function EditMovie() {
   const navigate = useNavigate();
@@ -20,6 +21,7 @@ export default function EditMovie() {
 
     await edit(id, {...movieData, likes: movie.likes});
 
+    showSuccessToast('Movie was edited successfully!')
     navigate(`/movies/${id}/details`);
   };
 

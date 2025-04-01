@@ -3,6 +3,7 @@ import "./addMovie.css"
 import { useNavigate} from "react-router";
 
 import { useCreateMovie} from "../../api/moviesAPI.js";
+import { showSuccessToast } from "../toasts/ShowToast.jsx";
 
 export default function AddContent(){
     const navigate = useNavigate();
@@ -12,8 +13,9 @@ export default function AddContent(){
       const submitAction = async (formData) => {
         const movieData = Object.fromEntries(formData);
       
-        await add({...movieData, likes: 0});
+        await add({...movieData});
 
+        showSuccessToast('Movie was added successfully!')
         navigate(`/movies`);
       };
       
