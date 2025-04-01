@@ -3,8 +3,6 @@ import { useTopRated } from "../../api/moviesAPI";
 export default function HighestRated() {
 
     const {movies} = useTopRated();
-    console.log(movies);
-    
 
     return (
     <div className="bg-gray-900 text-yellow-400 min-h-screen py-8 px-6">
@@ -27,7 +25,7 @@ export default function HighestRated() {
               <h2 className="text-xl font-semibold">{movie.title}</h2>
               <p className="text-gray-300 mt-2">Rating: {movie.rating}</p>
             </div>
-          </div>
+          </div>  
         ))}
       </div>
     </div>
