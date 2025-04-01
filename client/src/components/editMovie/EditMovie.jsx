@@ -3,18 +3,36 @@ import "./editMovie.css";
 import { Navigate, useNavigate, useParams } from "react-router";
 
 import { useEditMovie, useGetMovie } from "../../api/moviesAPI";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../context/UserContext";
 import { showSuccessToast } from "../toasts/ShowToast";
+import Loading from "../Loading";
 
 export default function EditMovie() {
   const navigate = useNavigate();
+
+  const [isLoading, setIsLoading] = useState(true);
 
   const user = useContext(UserContext);
   
   const { id } = useParams();
   const { edit } = useEditMovie();
   const { movie } = useGetMovie(id);
+
+  useEffect( () => {
+    if (movie && movie._ownerId){
+      setIsLoading(false);
+    }
+  }, [movie])
+
+  if (isLoading){
+    return <Loading />
+  }
+    const isOwner = user._id === movie._ownerId;
+    
+    if(!isOwner){
+      return <Navigate to="/movies" />
+    }
 
   const submitAction = async (formData) => {
     const movieData = Object.fromEntries(formData);
@@ -24,12 +42,6 @@ export default function EditMovie() {
     showSuccessToast('Movie was edited successfully!')
     navigate(`/movies/${id}/details`);
   };
-
-  const isOwner = user._id === movie._ownerId;
-  
-  if(!isOwner){
-    return <Navigate to="/movies" />
-  }
 
   return (
     <div className="collection-container">
