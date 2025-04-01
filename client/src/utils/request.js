@@ -5,9 +5,9 @@ const request = async (method, url, data, options = {}) => {
         options.method = method
     }
 
-    const authData = JSON.parse(localStorage.getItem('auth'));
+    const authData = JSON.parse(localStorage.getItem('auth') || "null");
 
-    if (authData.accessToken)  {
+    if (authData?.accessToken) {
         options = {
             ...options,
             headers: {

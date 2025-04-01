@@ -6,7 +6,7 @@ import movieServices from "../../services/movieServices";
 import ShowRating from "../rating/ShowRating";
 import LikesSection from "../likesSection/LikesSection";
 
-import { UserContext } from "../../context/userContext";
+import { UserContext } from "../../context/UserContext";
 import { useDeleteMovie, useGetMovie } from "../../api/moviesAPI";
 
 export default function MovieDetails() {
@@ -32,7 +32,7 @@ export default function MovieDetails() {
   }
 
   const addDate = new Date(movie._createdOn).toLocaleDateString();
-  const isOwner = user._id === movie.owner
+  const isOwner = user._id === movie._ownerId
   
   return (
     <div className=" relative container mx-auto py-7 px-6">

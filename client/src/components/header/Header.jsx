@@ -2,11 +2,9 @@ import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router";
 
 import { FaSearch, FaFilm, FaBars, FaTimes } from "react-icons/fa";
-import { UserContext } from "../../context/userContext";
+import { UserContext } from "../../context/UserContext";
 
-export default function Header({
-  userName
-}) {
+export default function Header() {
   const user = useContext(UserContext);
   
   const [menuOpen, setMenuOpen] = useState(false);
@@ -97,7 +95,7 @@ export default function Header({
         {user.email 
           ? <>
              <Link to={`/user/${user._id}/details`} className="bg-yellow-400 text-gray-900 px-4 py-2 rounded-full hover:bg-yellow-300">
-                {userName}
+                {user.userName}
               </Link>
             <Link to="/logout" className=" hidden md:block bg-gray-700 text-white px-4 py-2 rounded-full hover:bg-gray-600"> 
               Logout 

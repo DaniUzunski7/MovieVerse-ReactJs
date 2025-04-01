@@ -5,7 +5,7 @@ import { useContext, useState } from "react"
 import { toast } from 'react-toastify';
 import { showErrorToast, showSuccessToast } from '../../toasts/ShowToast';
 import { useRegister } from '../../../api/authAPI';
-import { UserContext } from '../../../context/userContext';
+import { UserContext } from '../../../context/UserContext';
 
 export default function Register(){
     const navigate = useNavigate();

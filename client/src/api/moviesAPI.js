@@ -57,7 +57,7 @@ export const useLatest = () => {
         const searchParams = new URLSearchParams({
             sortBy: '_createdOn desc',
             pageSize: 4,
-            select: '_id,poster,_createdOn'
+            select: '_id,title,poster,_createdOn'
         })
 
         request.get(`${baseUrl}?${searchParams.toString()}`)

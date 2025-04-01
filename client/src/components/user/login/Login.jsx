@@ -3,7 +3,7 @@ import "./login.css"
 
 import { useActionState, useContext, useState } from "react";
 import { useLogin } from "../../../api/authAPI";
-import { UserContext } from "../../../context/userContext";
+import { UserContext } from "../../../context/UserContext";
 import { showSuccessToast } from "../../toasts/ShowToast";
 
 export default function Login(){

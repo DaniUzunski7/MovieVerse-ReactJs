@@ -1,11 +1,11 @@
 import { useContext } from "react";
-import { UserContext } from "../context/userContext";
+import { UserContext } from "../context/UserContext";
 
 export default function useAuth() {
-    const { accessToken } = useContext(UserContext);
+    const { accessToken } = useContext(UserContext)
 
    return {
     accessToken,
-
+    isAuthenticated: !!accessToken
    }
 }

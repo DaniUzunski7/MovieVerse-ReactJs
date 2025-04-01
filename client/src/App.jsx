@@ -12,7 +12,6 @@ import AddMovie from "./components/addMovie/AddMovie";
 import MovieDetails from "./components/movieDetails/MovieDetails";
 import About from "./components/about/About";
 
-import { UserContext } from "./context/userContext";
 
 import { ToastContainer } from "react-toastify";
 import { Routes, Route } from "react-router";
@@ -20,23 +19,16 @@ import { Routes, Route } from "react-router";
 import Logout from "./components/user/logout/Logout";
 import UserDetails from "./components/user/details/UserDetails";
 import EditMovie from "./components/editMovie/EditMovie";
-import usePersistedState from "./hooks/usePersistedState";
+import UserProvider from "./context/UserContext";
 
 function App() {
-  const [user, setUser] = usePersistedState('auth', {});
-
-  const loginHandler = (userData) => {
-    setUser(userData);
-  };
-
-  const logoutHandler = () => {
-    setUser({});
-  }
 
   return (
-    <UserContext.Provider value={{ ...user, loginHandler, logoutHandler }}>
+
+    <UserProvider>
+
       <div className="flex flex-col min-h-screen w-full bg-gray-900 text-yellow-400">
-        <Header userName={user.userName}/>
+        <Header/>
 
         <Routes>
           <Route path="/" element={<Home />} />
@@ -48,7 +40,7 @@ function App() {
           <Route path="/:path/:id/details" element={<MovieDetails />} />
           <Route path="/movies/:id/edit" element={<EditMovie />} />
 
-          <Route path="/login" element={<Login onLogin={loginHandler} />} />
+          <Route path="/login" element={<Login/>} />
           <Route path="/register" element={<Register />} />
           <Route path="/logout" element={<Logout />} />
           <Route path="/user/:id/details" element={ <UserDetails /> } />
@@ -60,7 +52,8 @@ function App() {
 
         <Footer />
       </div>
-    </UserContext.Provider>
+    </UserProvider>
+    
   );
 }
 
