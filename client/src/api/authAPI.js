@@ -40,14 +40,8 @@ export const useLogout = () => {
     if(!accessToken){
         return
     }
-
-      const options = {
-          headers: {
-              "X-Authorization": accessToken,
-            },
-        };
         
-        request.get(`${baseUrl}/logout`, null, options)
+        request.get(`${baseUrl}/logout`, null)
             .then(logoutHandler)
     }, [accessToken, logoutHandler]);
 

@@ -4,6 +4,7 @@ import "./login.css"
 import { useActionState, useContext, useState } from "react";
 import { useLogin } from "../../../api/authAPI";
 import { UserContext } from "../../../context/userContext";
+import { showSuccessToast } from "../../toasts/ShowToast";
 
 export default function Login(){
 
@@ -18,10 +19,12 @@ export default function Login(){
     const userLoginHandler = async (_, formData) => {
       const data = Object.fromEntries(formData);
       
-      const serverData = await login(data.email, data.password)
+     
+      const serverData = await login(data.email, data.password);
       
       loginHandler(serverData);
       
+      showSuccessToast('Login successful')
       navigate('/movies');
     }
     
