@@ -1,29 +1,24 @@
 import { FaChevronLeft, FaChevronRight, FaFastForward, FaFastBackward } from "react-icons/fa";
 
-export default function Pagination(){
+export default function Pagination({
+  page,
+  onPageChange,
+  totalPages
+}){
     return (
      <div className="flex justify-center items-center gap-4 mt-8">
-     <FaFastBackward className="cursor-pointer"></FaFastBackward>
      <FaChevronLeft 
-     className="cursor-pointer"
-    //    onClick={() => handlePageChange(currentPage - 1)}
-    //    disabled={currentPage === 1}
-       >
-       Previous
-     </FaChevronLeft>
+    className={`cursor-pointer ${page === 1 ? "opacity-50 cursor-not-allowed" : ""}`}
+    onClick={() => page > 1 && onPageChange(page - 1)} 
+/>
      <span className="text-lg text-gray-300">
-       Page 1 of 3
-     </span>
+       Page {page} of {totalPages}
+      </span>
      <FaChevronRight
-     className="cursor-pointer"
-    //    onClick={() => handlePageChange(currentPage + 1)}
-    //    disabled={currentPage === totalPages}
+    className={`cursor-pointer ${page === totalPages ? "opacity-50 cursor-not-allowed" : ""}`}
+    onClick={() => page < totalPages && onPageChange(page + 1)} 
        >
      </FaChevronRight>
-     <FaFastForward
-     className="cursor-pointer">
-
-     </FaFastForward>
    </div>
     )
 }

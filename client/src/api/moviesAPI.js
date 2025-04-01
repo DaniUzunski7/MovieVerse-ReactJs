@@ -17,24 +17,49 @@ export const useCreateMovie = () => {
     }
 }
 
-export const useMovies = () => {
+export const useMovies = (page) => {
     const [movies, setMovies] = useState([]);
+
+        const searchParams = new URLSearchParams({
+            offset: (page - 1) * 6,
+            pageSize: 6
+        })
     
-    useEffect( () => {
-        request.get(baseUrl)
-            .then(setMovies)
-    }, [])
+        useEffect( () => {
+            request.get(`${baseUrl}?${searchParams}`)
+                .then(setMovies)
+        }, [page])
 
     return {
         movies
     };
 }
 
+export const useMoviesCount = () => {
+    const [totalMovies, setTotalMovies] = useState();
+
+    useEffect( () => {
+        request.get(`${baseUrl}?select=_id`)
+            .then(response => {
+                setTotalMovies(Object.keys(response).length)
+            })
+    }, []);
+
+    return {
+        totalMovies
+    }
+}
+
 export const useLatest = () => {
     const [movies, setMovies] = useState([]);
 
     useEffect( () => {
-        request.get(`${baseUrl}?sortBy=_createdOn%20desc&pageSize=4`)
+        const searchParams = new URLSearchParams({
+            sortBy: '_createdOn desc',
+            pageSize: 4
+        })
+
+        request.get(`${baseUrl}?${searchParams.toString()}`)
             .then(setMovies)
     }, []);
 

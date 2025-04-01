@@ -1,13 +1,19 @@
 import { Link } from "react-router";
-import { useMovies } from "../../api/moviesAPI";
+import { useMovies, useMoviesCount} from "../../api/moviesAPI";
 
 import Pagination from "../Pagination";
 import MovieCard from "../MovieCard";
 import NoContent from "../NoContent";
+import { useState } from "react";
 
 export default function Movies() {
-    const {movies} = useMovies();
-    
+  const [page, setPage] = useState(1);
+  
+  const {movies} = useMovies(page);
+  const {totalMovies} = useMoviesCount();
+  
+  const totalPages = Math.ceil(totalMovies / 6);
+  
     return (
     <div className="bg-gray-900 text-yellow-400 min-h-screen py-8 px-6">
       <h1 className="text-3xl font-bold text-center mb-8">Movies</h1>
@@ -30,7 +36,7 @@ export default function Movies() {
         
 
         {movies
-          ? <Pagination />
+          ? <Pagination totalPages={totalPages} page={page} onPageChange={setPage}/>
           : null
         }
 
