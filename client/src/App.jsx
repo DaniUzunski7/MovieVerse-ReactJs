@@ -20,6 +20,7 @@ import Logout from "./components/user/logout/Logout";
 import UserDetails from "./components/user/details/UserDetails";
 import EditMovie from "./components/editMovie/EditMovie";
 import UserProvider from "./context/UserContext";
+import AuthGuard from "./components/guards/AuthGuard";
 
 function App() {
 
@@ -36,16 +37,24 @@ function App() {
           <Route path="/movies" element={<Movies />} />
           <Route path="/upcoming" element={<Upcoming />} />
           <Route path="/highest-rated" element={<HighestRated />} />
-          <Route path="/movies/add" element={<AddMovie />} />
           <Route path="/:path/:id/details" element={<MovieDetails />} />
-          <Route path="/movies/:id/edit" element={<EditMovie />} />
 
           <Route path="/login" element={<Login/>} />
           <Route path="/register" element={<Register />} />
-          <Route path="/logout" element={<Logout />} />
+
+
+          <Route element={ <AuthGuard /> }>
+          
+          <Route path="/movies/add" element={<AddMovie />} />
+          <Route path="/movies/:id/edit" element={<EditMovie />} />
+          
           <Route path="/user/:id/details" element={ <UserDetails /> } />
+          <Route path="/logout" element={<Logout />} />
+          
+          </Route>
 
           <Route path="/about" element={<About />} />
+        
         </Routes>
 
         <ToastContainer />
@@ -53,7 +62,7 @@ function App() {
         <Footer />
       </div>
     </UserProvider>
-    
+
   );
 }
 
