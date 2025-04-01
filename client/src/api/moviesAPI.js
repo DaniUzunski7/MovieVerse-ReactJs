@@ -56,7 +56,8 @@ export const useLatest = () => {
     useEffect( () => {
         const searchParams = new URLSearchParams({
             sortBy: '_createdOn desc',
-            pageSize: 4
+            pageSize: 4,
+            select: '_id,poster,_createdOn'
         })
 
         request.get(`${baseUrl}?${searchParams.toString()}`)
