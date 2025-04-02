@@ -29,11 +29,11 @@ export default function Register(){
         
         loginHandler(serverData)
         
-        showSuccessToast('Register successfull');
+        showSuccessToast('Register successful');
         navigate('/');
       
       } catch (error) {
-        showErrorToast(error);  
+        showErrorToast(error.message);  
       }
     }
 
