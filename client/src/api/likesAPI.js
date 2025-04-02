@@ -20,3 +20,21 @@ export const useLike = () => {
     }
 }
 
+export const useGetLikes = (movieId) => {
+    const [likesCount, setLikesCount] = useState([]);
+
+    useEffect( () => {
+
+        const searchParams = new URLSearchParams({
+            where: `movieId="${movieId}"`
+        });
+
+        request.get(`${baseUrl}?${searchParams.toString()}`)
+            .then(setLikesCount);
+    }, [movieId])
+
+    return {
+        likesCount,
+        setLikesCount
+    }
+}
