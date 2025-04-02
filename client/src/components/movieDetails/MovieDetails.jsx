@@ -1,24 +1,35 @@
-import {useContext } from "react";
+import {useContext, useEffect, useState } from "react";
 import { useParams, useNavigate, Link } from "react-router";
 import { FaEdit, FaTrash } from "react-icons/fa";
 
-import movieServices from "../../services/movieServices";
 import ShowRating from "../rating/ShowRating";
 import LikesSection from "../likesSection/LikesSection";
 
 import { UserContext } from "../../context/UserContext";
 import { useDeleteMovie, useGetMovie } from "../../api/moviesAPI";
+import { useGetLikes, useLike } from "../../api/likesAPI";
 
 export default function MovieDetails() {
   const navigate = useNavigate();
   const user = useContext(UserContext);
 
+    const [isLiked, setIsLiked] = useState(false);
+
   const { path, id } = useParams();
 
   const { movie } = useGetMovie(id);
+  const { deleteMovie } = useDeleteMovie();
+  const { like } = useLike();
+  const { likesCount, setLikesCount } = useGetLikes(movie._id);
+      
+  useEffect( () => {
+            
+    if(likesCount.find(like => like._ownerId === user._id)){
+        setIsLiked(true);
+    }
 
-  const { deleteMovie } = useDeleteMovie()
-    
+}, [movie._id, user._id, likesCount])
+
   const deleteMovieHandler = async () => {
     const confirmed = confirm('Are you sure you want to delete this movie? This action cannot be undone.')
 
@@ -30,6 +41,14 @@ export default function MovieDetails() {
 
     navigate('/movies');
   }
+
+  const likeHandler = async() => {
+       
+    const newLike = await like(movie._id);
+
+    setLikesCount(state => [...state, newLike]);
+    setIsLiked(true);
+} 
 
   const addDate = new Date(movie._createdOn).toLocaleDateString();
   const isOwner = user._id === movie._ownerId
@@ -74,7 +93,7 @@ export default function MovieDetails() {
            
             </div>
 
-          {user._id && <LikesSection userId={user._id} movieId={movie._id} />}
+          {user._id && <LikesSection isLiked={isLiked} onLike={likeHandler} likesCount={likesCount.length}/>}
 
           {!isOwner || !user._id ? (
             ""
