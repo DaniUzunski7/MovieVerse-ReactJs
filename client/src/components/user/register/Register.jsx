@@ -51,6 +51,7 @@ export default function Register(){
                 placeholder="Enter your email"
                 className="form-input"
                 value={email}
+                required
                 onChange={(e) => setEmail(e.target.value)}
               />
             </div>
@@ -63,6 +64,7 @@ export default function Register(){
                 placeholder="Enter your user name"
                 className="form-input"
                 value={userName}
+                required
                 onChange={(e) => setUserName(e.target.value)}
               />
             </div>
@@ -74,6 +76,7 @@ export default function Register(){
                 name="password"
                 placeholder="Enter your password"
                 className="form-input"
+                required
               />
             </div>
             <div className="form-group">
@@ -84,6 +87,7 @@ export default function Register(){
                 name="rePassword"
                 placeholder="Confirm your password"
                 className="form-input"
+                required
               />
             </div>
             <button type="submit" className="btn-submit">

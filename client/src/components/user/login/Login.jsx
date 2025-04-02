@@ -4,7 +4,7 @@ import "./login.css"
 import { useActionState, useContext, useState } from "react";
 import { useLogin } from "../../../api/authAPI";
 import { UserContext } from "../../../context/UserContext";
-import { showSuccessToast } from "../../toasts/ShowToast";
+import { showSuccessToast, showErrorToast } from "../../toasts/ShowToast";
 
 export default function Login(){
 
@@ -19,13 +19,18 @@ export default function Login(){
     const userLoginHandler = async (_, formData) => {
       const data = Object.fromEntries(formData);
       
-     
-      const serverData = await login(data.email, data.password);
+     try {
+       const serverData = await login(data.email, data.password);
       
-      loginHandler(serverData);
+       loginHandler(serverData);
+       showSuccessToast('Login successful')
+       navigate(-1);
+
+     } catch (error) {
+        showErrorToast("Email or password doesn't match")
+     }
       
-      showSuccessToast('Login successful')
-      navigate(-1);
+      
     }
     
     const [_, loginAction, isPending] = useActionState(userLoginHandler, {email: '', password: ''})
@@ -44,6 +49,7 @@ export default function Login(){
                 placeholder="Enter your email"
                 className="form-input"
                 value={email}
+                required
                 onChange={(e) => setEmail(e.target.value)}
               />
             </div>
@@ -56,6 +62,7 @@ export default function Login(){
                 placeholder="Enter your password"
                 className="form-input"
                 value={password}
+                required
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
