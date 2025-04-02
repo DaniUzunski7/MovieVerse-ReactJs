@@ -18,5 +18,6 @@ export default function HomeGrid({
               </div>
             ))}
           </div>
+
     )
 }

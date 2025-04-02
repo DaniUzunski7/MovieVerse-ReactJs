@@ -10,7 +10,7 @@ export default function UserDetails({
     const {user} = useGetUser();
         
     return (
-        <div className="fixed inset-0 flex items-center justify-center backdrop-blur-md bg-black/30 z-7">
+        <div className="fixed inset-0 flex items-center justify-center backdrop-blur-md bg-black/30 z-20">
             <div onClick={onClose} className="fixed inset-0 flex items-center justify-center backdrop-blur-md bg-black/30">
         <div className="bg-gray-900 text-white p-6 rounded-2xl shadow-lg w-96 relative flex flex-col items-center">
             <button onClick={onClose} className="absolute top-3 right-3 text-gray-400 hover:text-white">

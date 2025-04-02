@@ -1,11 +1,12 @@
 import { Link } from "react-router";
 import { useMovies, useMoviesCount } from "../../api/moviesAPI";
 
-import Pagination from "../Pagination";
-import MovieCard from "../MovieCard";
-import NoContent from "../NoContent";
 import { useContext, useState } from "react";
-import { UserContext } from "../../context/userContext";
+import { UserContext } from "../../context/UserContext";
+
+import Pagination from "../pagination/Pagination";
+import MovieCard from "../movieDetails/movieCard/MovieCard";
+import NoContent from "../noContent/NoContent";
 
 export default function Movies() {
   const [page, setPage] = useState(1);
@@ -48,6 +49,10 @@ export default function Movies() {
           onPageChange={setPage}
         />
       ) : null}
+
+      {totalMovies < 1 && <NoContent />}
+
     </div>
+
   );
 }

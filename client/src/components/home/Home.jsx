@@ -4,6 +4,7 @@ import HeroSection from "./heroSection/HeroSection";
 import movieServices from "../../services/movieServices";
 import HomeGrid from "./HomeGrid";
 import { useLatest } from "../../api/moviesAPI";
+import NoContent from "../noContent/NoContent";
 
 export default function Home({}){
   
@@ -38,6 +39,7 @@ export default function Home({}){
             : <HomeGrid movies={upcoming} category={movieCategory}/>
           }
           
+          {!movies && <NoContent />}
         </main>
     )
 }

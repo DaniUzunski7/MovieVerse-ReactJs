@@ -6,7 +6,7 @@ import { useEditMovie, useGetMovie } from "../../api/moviesAPI";
 import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../context/UserContext";
 import { showSuccessToast } from "../toasts/ShowToast";
-import Loading from "../Loading";
+import Loading from "../loading/Loading";
 
 export default function EditMovie() {
   const navigate = useNavigate();

@@ -9,7 +9,6 @@ import Upcoming from "./components/catalogs/Upcoming";
 import Login from "./components/user/login/Login";
 import Register from "./components/user/register/Register";
 import AddMovie from "./components/addMovie/AddMovie";
-import MovieDetails from "./components/movieDetails/MovieDetails";
 import About from "./components/about/About";
 
 
@@ -17,11 +16,11 @@ import { ToastContainer } from "react-toastify";
 import { Routes, Route } from "react-router";
 
 import Logout from "./components/user/logout/Logout";
-import UserDetails from "./components/user/details/UserDetails";
 import EditMovie from "./components/editMovie/EditMovie";
 import UserProvider from "./context/UserContext";
 import AuthGuard from "./components/guards/AuthGuard";
 import GuestGuard from "./components/guards/GuestGuard";
+import MovieDetails from "./components/movieDetails/MovieDetails";
 
 function App() {
 
