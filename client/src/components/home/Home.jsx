@@ -5,7 +5,8 @@ import movieServices from "../../services/movieServices";
 import HomeGrid from "./HomeGrid";
 import { useLatest } from "../../api/moviesAPI";
 
-export default function Home(){
+export default function Home({}){
+  
     const [movieCategory, setMovieCategory] = useState("lastAdded");
     const [upcoming, setUpcomming] = useState([]);
     

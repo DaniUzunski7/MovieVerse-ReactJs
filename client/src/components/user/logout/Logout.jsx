@@ -1,13 +1,12 @@
 import { Navigate } from "react-router";
 import { useLogout } from "../../../api/authAPI"
-import { showSuccessToast } from "../../toasts/ShowToast";
+import { showErrorToast, showSuccessToast } from "../../toasts/ShowToast";
 
 
 export default function Logout(){
     const {isLoggedOut} = useLogout();
-    showSuccessToast('Logout successful!')
-
+    
     return isLoggedOut
-            ? <Navigate to="/"/>
-            : null
+        ? <Navigate to="/" />
+        : showErrorToast('Can not logout!')
 }
